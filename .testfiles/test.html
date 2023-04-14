@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Carita Sonriente</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script id="math" src="https://cdn.jsdelivr.net/npm/mathjs@11.7.0/lib/browser/math.min.js"></script>
+        <script src="./scripts/keyboard.js"></script>
+        <script>
+$(document).ready(function() {
+  // Define the numpad layout
+  const numpadLayout = [
+    ['1', '2', '3'],
+    ['4', '5', '6'],
+    ['7', '8', '9'],
+    ['0', '.', '']
+  ];
+
+  // Create the numpad element
+  const $numpad = $('<div>').addClass('numpad');
+
+  // Loop through the rows of the numpad layout
+  for (let row of numpadLayout) {
+    // Create a row element
+    const $row = $('<div>').addClass('numpad-row');
+  
+    // Loop through the keys in the row
+    for (let key of row) {
+      // Create a key element
+      const $key = $('<div>').addClass('numpad-key').text(key);
+    
+      // Add a click event handler to the key element
+      $key.click(function() {
+        // Get the value of the currently clicked input box
+        const currentValue = $(document.activeElement).val();
+      
+        // Append the clicked key to the input field
+        $(document.activeElement).val(currentValue + $(this).text());
+      });
+    
+      // Append the key element to the row element
+      $row.append($key);
+    }
+  
+    // Append the row element to the numpad element
+    $numpad.append($row);
+  }
+
+  // Append the numpad element to the body
+  $('body').append($numpad.hide());
+
+  // Show the numpad when the button is clicked
+  $('#numpad-btn').click(function() {
+    $('.numpad').show();
+  });
+
+  // Hide the numpad when a key is clicked outside of the numpad
+  $(document).click(function(event) {
+    if (!$(event.target).closest('.numpad').length && !$(event.target).is('.numpad-input')) {
+      $('.numpad').hide();
+    }
+  });
+});
+
+
+        </script>
+        <style>
+/* Style the numpad */
+.numpad {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+/* Style the numpad rows and keys */
+.numpad-row {
+  display: flex;
+}
+
+.numpad-key {
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* Style the button */
+#numpad-btn {
+  display: block;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+
+        </style>
+    </head>
+    <body>
+       <!-- Add an input field with the class "numpad-input" -->
+<input type="text" class="numpad-input">
+
+<!-- Add a button to trigger the numpad -->
+<button id="numpad-btn">Open numpad</button>
+
+
+    </body>
+</html>

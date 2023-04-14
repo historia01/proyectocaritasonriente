@@ -1,0 +1,35 @@
+.row {
+    display: flex;
+}
+
+.element {
+    margin: 10px !important;
+    padding: 10px;
+    background-color: lightgray;
+}
+
+p {
+    text-align: center;
+}
+
+/*NUMPAD */ 
+
+#numpad {
+    display: none;
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+  }
+  
+.numpad-row {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+.numpad-key {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    background-color: #eee;
+    cursor: pointer;
+  }

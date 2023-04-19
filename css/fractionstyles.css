@@ -1,5 +1,32 @@
+@font-face {
+  font-family: PinkChicken;
+  src: url(../media/fonts/PinkChicken-Regular.ttf);
+}
+
+body {
+  font-family: PinkChicken;
+  font-weight: 400;
+}
+
+p {
+  text-align: center;
+}
+
+#mainContent {
+  margin: 1%
+}
+
 .row {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5%;
+}
+
+#controlButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .element {
@@ -8,28 +35,28 @@
     background-color: lightgray;
 }
 
-p {
-    text-align: center;
+.functionButton {
+  margin-left: 1%;
+  margin-right: 1%;
 }
 
-/*NUMPAD */ 
+#commentBox {
+  display: flex;
+  background-color: gray;
+  color:white;
+  font-size: 150%;
+}
 
-#numpad {
-    display: none;
-    position: absolute;
-    bottom: 100%;
-    left: 0;
-  }
-  
-.numpad-row {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-.numpad-key {
-    padding: 10px;
-    margin: 5px;
-    border-radius: 5px;
-    background-color: #eee;
-    cursor: pointer;
-  }
+#keyboardGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+
+.keyboardButton {
+  font-size: larger;
+  border: 10%;
+  background-color: bisque;
+  border-style: dotted;
+  border-color: aquamarine;
+}

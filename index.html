@@ -9,66 +9,86 @@
         <script src="./scripts/main.js"></script> 
     </head>
     <body>
-        <div class="row">
-            <div id="fraction1" class="element">
-                <label for="numberA">a</label>
-                <input type="text" id="numberA" name="numberA" size="5" maxlength="5">
-                <div id="container" style="left: 0;">
-                    <div id="target-element">
+        <div id="mainContent">
+            <div class="row">
+                <div id="fraction1" class="element">
+                    <label for="numberA">a</label>
+                    <input type="text" id="numberA" name="numberA" size="5" maxlength="5">
+                    <div id="container" style="left: 0;">
+                        <div id="target-element">
+                        </div>
+                        <img id="my-image" width="220" src="media/weirdsmile.gif" alt="Image" style="display:none; position:absolute; z-index:1000; pointer-events:none; left: 6%; " >
                     </div>
-                    <img id="my-image" width="220" src="media/weirdsmile.gif" alt="Image" style="display:none; position:absolute; z-index:1000; pointer-events:none; left: 6%; " >
-                  </div>
-                <p>___________</p>
-                <label for="numberB">b</label>
-                <input type="text" id="numberB" name="numberB" size="5" maxlength="5">
+                    <p>—————</p>
+                    <label for="numberB">b</label>
+                    <input type="text" id="numberB" name="numberB" size="5" maxlength="5">
+                </div>
+                <br>
+                <div id="fractionOperator" class="element">
+                    <label for="operatorAdd">+</label>
+                    <input type="radio" id="operatorAdd" name="operators" value="yes">
+                    <label for="operatorSubs">-</label>
+                    <input type="radio" id="operatorSubs" name="operators" value = "no">
+                </div>
+                <br>
+                <div id="fraction2" class="element">
+                    <label for="numberC">c</label>
+                    <input type="text" id="numberC" name="numberC" size="5" maxlength="5">
+                    <p>—————</p>
+                    <label for="numberD">d</label>
+                    <input type="text" id="numberD" name="numberD" size="5" maxlength="5">
+                </div>
+                <br>
+                <div id="fraction3" class="element">
+                    <label for="numberE">e</label>
+                    <input type="text" id="numberE" name="numberE" size="5" maxlength="5">
+                    <label for="numberF">f</label>
+                    <input type="text" id="numberF" name="numberF" size="5" maxlength="5">
+                    <p>—————</p>
+                    <label for="numberG">g</label>
+                    <input type="text" id="numberG" name="numberG" size="5" maxlength="5">
+                </div>
+                <br>
+                <div id="fractionResult" class="element">
+                    <label for="numberRA">RA</label>
+                    <input type="text" id="numberRA" name="numberRA" size="5" maxlength="5">
+                    <p class="resultOperator">—————</p>
+                    <label for="numberRB">RB</label>
+                    <input type="text" id="numberRB" name="numberRB" size="5" maxlength="5">
+                </div>
+                <br>
+                <div id="fractionResultSimplified" class="element">
+                    <label for="numberRC">RC</label>
+                    <input type="text" id="numberRC" name="numberRC" size="5" maxlength="5">
+                    <p class="resultOperator">—————</p>
+                    <label for="numberRD">RD</label>
+                    <input type="text" id="numberRD" name="numberRD" size="5" maxlength="5">
+                </div>
+                <br>
             </div>
-            <br>
-            <div id="fractionOperator" class="element">
-                <label for="operatorAdd">+</label>
-                <input type="radio" id="operatorAdd" name="operators" value="yes">
-                <label for="operatorSubs">-</label>
-                <input type="radio" id="operatorSubs" name="operators" value = "no">
+            <div id="controlButtons">
+                <button type="button" id="compareButton" class="functionButton">Comparar</button>
+                <button type="button" id="clearButton" class="functionButton">Limpiar</button>
             </div>
-            <br>
-            <div id="fraction2" class="element">
-                <label for="numberC">c</label>
-                <input type="text" id="numberC" name="numberC" size="5" maxlength="5">
-                <p>___________</p>
-                <label for="numberD">d</label>
-                <input type="text" id="numberD" name="numberD" size="5" maxlength="5">
+            <div id="commentBox">
+                <div id="keyboardGrid">
+                    <button class="keyboardButton" id="keyboardButton1">1</button>
+                    <button class="keyboardButton" id="keyboardButton2">2</button>
+                    <button class="keyboardButton" id="keyboardButton3">3</button>
+                    <button class="keyboardButton" id="keyboardButton4">4</button>
+                    <button class="keyboardButton" id="keyboardButton5">5</button>
+                    <button class="keyboardButton" id="keyboardButton6">6</button>
+                    <button class="keyboardButton" id="keyboardButton7">7</button>
+                    <button class="keyboardButton" id="keyboardButton8">8</button>
+                    <button class="keyboardButton" id="keyboardButton9">9</button>
+                    <button class="keyboardButton" id="keyboardButtonPlus">+</button>
+                    <button class="keyboardButton" id="keyboardButton0">0</button>
+                    <button class="keyboardButton" id="keyboardButtonMinus">-</button>
+                </div>
+                <p class="commentText">this is a sample text</p>
             </div>
-            <br>
-            <div id="fraction3" class="element">
-                <label for="numberE">e</label>
-                <input type="text" id="numberE" name="numberE" size="5" maxlength="5">
-                <label for="numberF">f</label>
-                <input type="text" id="numberF" name="numberF" size="5" maxlength="5">
-                <p>___________</p>
-                <label for="numberG">g</label>
-                <input type="text" id="numberG" name="numberG" size="5" maxlength="5">
-            </div>
-            <br>
-            <div id="fractionResult" class="element">
-                <label for="numberRA">RA</label>
-                <input type="text" id="numberRA" name="numberRA" size="5" maxlength="5">
-                <p class="resultOperator">___________</p>
-                <label for="numberRB">RB</label>
-                <input type="text" id="numberRB" name="numberRB" size="5" maxlength="5">
-            </div>
-            <br>
-            <div id="fractionResultSimplified" class="element">
-                <label for="numberRC">RC</label>
-                <input type="text" id="numberRC" name="numberRC" size="5" maxlength="5">
-                <p class="resultOperator">___________</p>
-                <label for="numberRD">RD</label>
-                <input type="text" id="numberRD" name="numberRD" size="5" maxlength="5">
-            </div>
-            <br>
         </div>
-        <button type="button" id="compareButton">Comparar</button>
-        <button type="button" id="clearButton">Limpiar</button>
-        <input type="text" id="my-input">
-
+        
         
     </body>
 </html>

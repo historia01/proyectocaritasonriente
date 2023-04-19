@@ -43,7 +43,7 @@ $(document).ready(function() {
         $('#numberRB').val(fractionResults[2]);
         $('#numberRC').val(fractionResults[9]);
         $('#numberRD').val(fractionResults[10]);
-        $('.resultOperator').text((fractionResults[6]==1)?'+ ___________':'- ___________');
+        $('.resultOperator').text((fractionResults[6]==1)?'+ ——————':'- ——————');
         $('#my-image').show();
     });
     $("#clearButton").click(function() {

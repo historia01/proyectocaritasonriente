@@ -36,27 +36,53 @@ p {
 }
 
 .functionButton {
-  margin-left: 1%;
-  margin-right: 1%;
+  padding: 1%;
+  margin: 3px;
+  background-color: #0b4e4e;
+  color: white;
+  font-size: large;
+  font-family: PinkChicken;
 }
 
 #commentBox {
   display: flex;
-  background-color: gray;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+  border: 8px solid;
+  border-color: #4e2c0b;
+  background-color: #7d4714;
   color:white;
   font-size: 150%;
 }
 
 #keyboardGrid {
+  align-self: flex-start;
   display: grid;
+  padding: 3%;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
+  row-gap: 10px;
+  column-gap: 100%;
 }
 
 .keyboardButton {
   font-size: larger;
+  color: white;
   border: 10%;
-  background-color: bisque;
-  border-style: dotted;
-  border-color: aquamarine;
+  background-color: #a05d1e;
+  border-color: #FFFFFF;
+  border-radius: 5px;
+  padding-inline: 120%;
+  margin: 10%;
+  font-family: PinkChicken;
+  z-index: 2;
+}
+
+.keyboardButton:hover {
+	background-color: #ca8d53;
+}
+
+.commentText {
+  display: flex;
+  justify-content: start;
 }

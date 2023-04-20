@@ -38,10 +38,22 @@ p {
 .functionButton {
   padding: 1%;
   margin: 3px;
-  background-color: #0b4e4e;
+  background-color: #0e401e;
   color: white;
   font-size: large;
+  border: 4px solid #093316;
   font-family: PinkChicken;
+  border-radius: 3px;
+}
+
+.functionButton:hover {
+  background-color: #167536;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.functionButton:active {
+  background-color: #204eb2;
+  border: 4px solid #FFFFFF;
 }
 
 #commentBox {
@@ -85,4 +97,54 @@ p {
 .commentText {
   display: flex;
   justify-content: start;
+}
+
+#navGrid {
+  display: grid;
+  grid-template-rows: 3fr 3fr 3fr;
+  grid-template-columns: 3fr 3fr 3fr;
+  padding-inline-end: 5%;
+  column-gap: 7%;
+}
+
+.navButton {
+  align-self: flex-end;
+  font-size: larger;
+  color: white;
+  border: 10%;
+  background-color: #a05d1e;
+  border-color: #FFFFFF;
+  border-radius: 5px;
+  font-family: PinkChicken;
+  margin: 10%;
+  padding-inline: 20px;
+}
+
+.navButton:hover {
+	background-color: #ca8d53;
+}
+
+#navButtonU {
+  grid-row: 1 / 1;
+  grid-column: 2 / 3;
+}
+
+#navButtonD {
+  grid-row: 3 / 3;
+  grid-column: 2 / 3;
+}
+
+#navButtonL {
+  grid-row: 2 / 3;
+  grid-column: 1 / 1;
+}
+
+#navButtonR {
+  grid-row: 2 / 3;
+  grid-column: 3 / 3;
+}
+
+#navButtonC {
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
 }

@@ -5,14 +5,27 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
         <script id="math" src="https://cdn.jsdelivr.net/npm/mathjs@11.7.0/lib/browser/math.min.js"></script>
         <script src="./scripts/keyboard.js"></script>
-        <link rel="stylesheet" type="text/css" href="./css/fractionstyles.css">
         <script src="./scripts/main.js"></script> 
         <script src="./scripts/others.js"></script>
+        <script src="./scripts/guideOthers.js"></script>
+        <link rel="stylesheet" type="text/css" href="./css/fractionstyles.css">
     </head>
     <body>
+        <div class="sidebar">
+            <h1>Recursos Recomendados</h1>
+            <h2>Videos</h2>
+            <p>Video de Apoyo</p>
+            <iframe width="100%" height="35%" src="https://www.youtube.com/embed/LVHo5xvsvO0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <h5>por <a href="https://www.youtube.com/@danielcarreon">Daniel Carreon</a></h5>
+            <hr>
+            <p>Video de Apoyo</p>
+            <iframe width="100%" height="35%" src="https://www.youtube.com/embed/X_6EPkvIAGg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <h5>por <a href="example.com">Author</a></h5>
+            <h2>Páginas Web</h2>
+        </div>
         <div id="otherButtonsRow">
             <button class="otherButtons" id="fullscreenButton">🡼</button>
-            <button class="otherButtons" id="otherMenu">🕮</button>
+            <button class="otherButtons" id="otherMenu">📖</button>
         </div>
         <div id="mainContent">
             <div class="row">
@@ -98,6 +111,11 @@
                     <button class="navButton" id="navButtonAdd">+</button>
                     <button class="navButton" id="navButtonC">C</button>
                 </div>
+            </div>
+            <div>
+                <audio id="click">
+                    <source src="./media/audio/hit.mp3" type="audio/mpeg">
+                </audio>
             </div>
         </div>
     </body>

@@ -19,6 +19,7 @@ p {
   display: grid;
   row-gap: 5px;
   position: absolute;
+  left: 91%;
   z-index: 2;
 }
 
@@ -209,4 +210,36 @@ input:active {
 
 #commentPa1 {
   font-size: medium;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  width: 250px;
+  height: 100%;
+  background-image: url("../media/backgroundTexture.jpg");
+  border-right: solid 3px #4e2c0b;
+  padding: 10px;
+  box-sizing: border-box;
+  display: unset;
+  z-index: 3;
+  color: white;
+  overflow-y: auto;
+  transition: all 0.3s ease;
+}
+
+hr {
+  height: 4px;
+  border: none;
+  border-radius: 3px;
+  background-color: rgb(182, 114, 59);
+}
+
+a {
+  font-size: large;
+  color: #b3d9ff;
+  font-weight: 800;
+  font-style: normal;
+  text-decoration: none;
 }

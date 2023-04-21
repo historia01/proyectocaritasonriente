@@ -24,4 +24,8 @@ $(document).ready(function(){
           });
         }
     });
+    $("button").click(function(){
+      $("#click")[0].currentTime = 0;
+      $("#click")[0].play();
+    });
 });

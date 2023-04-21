@@ -7,13 +7,15 @@ $(document).ready(function() {
         let bA = $("#numberC").val();
         let bB = $("#numberD").val();
         
-       console.log(Number(aA) + " " + Number(aB)); 
-       new Chart("fractionChartA", {
-        type: "doughnut",
+        
+        
+       console.log(Number(aA) + " " + Number(aB));
+       var aChart = new Chart("fractionChartA", {
+        type: "pie",
         data: {
           labels: ["Numerador", "Denominador"],
           datasets: [{
-            backgroundColor: ["#248534", "#3448a8"],
+            backgroundColor: ["#deab35", "#3568de"],
             data: [Number(aA), Number(aB)]
           }]
         },
@@ -31,35 +33,35 @@ $(document).ready(function() {
           }
         }
         });
-        new Chart("fractionChartB", {
-         type: "doughnut",
+        var bChart = new Chart("fractionChartB", {
+         type: "pie",
+         data: {
+            labels: ["Numerador", "Denominador"],
+            datasets: [{
+                backgroundColor: ["#debf35", "#de4635"],
+                data: [Number(bA), Number(bB)]
+            }]
+        },
+        options: {
+            legend: {
+                display: true,
+                labels:{
+                    fontFamily: 'PinkChicken',
+                    fontColor: 'white'
+                }
+            },
+            title: {
+            display: false,
+            text: ''
+        }
+        }
+        });   
+        var rChart = new Chart("fractionChartR", {
+         type: "pie",
          data: {
            labels: ["Numerador", "Denominador"],
            datasets: [{
-             backgroundColor: ["#de4935", "#cdde35"],
-             data: [Number(bA), Number(bB)]
-           }]
-         },
-         options: {
-             legend: {
-                 display: true,
-                 labels:{
-                     fontFamily: 'PinkChicken',
-                     fontColor: 'white'
-                 }
-             },
-           title: {
-             display: false,
-             text: ''
-           }
-         }
-         });   
-        new Chart("fractionChartR", {
-         type: "doughnut",
-         data: {
-           labels: ["Numerador", "Denominador"],
-           datasets: [{
-             backgroundColor: ["#de4935", "#cdde35"],
+             backgroundColor: ["#de8a35", "#51de35"],
              data: [Number(simA), Number(simB)]
            }]
          },
@@ -76,6 +78,12 @@ $(document).ready(function() {
              text: ''
            }
          }
-       });   
+       });
      });
+    $('#clearButton').click(function(){
+        console.log("DESTERUCTION !!!!!")
+        aChart.destroy();
+        bChart.destroy();
+        rChart.destroy();
+    })
 });

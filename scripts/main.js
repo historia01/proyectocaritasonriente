@@ -66,6 +66,9 @@ $(document).ready(function() {
         $('#numberRC').val(fractionResults[9]);
         $('#numberRD').val(fractionResults[10]);
         $('.resultOperator').text((fractionResults[6]==1)?'+ ————':'- ————');
+        $('#aFrac').text('Fraccion Nº1\t| ' + _11 + '/' + _12)
+        $('#bFrac').text('Fraccion Nº2\t| ' + _21 + '/' + _22)
+        $('#rFrac').text('Resultado\t| ' + fractionResults[4] + '/' + fractionResults[5])
     });
     $("#clearButton").click(function() {
         $('#numberA').val('');
@@ -90,5 +93,10 @@ $(document).ready(function() {
         $("#numberD").css("background-color", "#7d4714");
         $("#commentHeader").html('Bienvenido al Proyecto<br>Carita Sonriente!');
         $("#commentPa1").html('¿Perdid@? <a id="howToUse">¡Haz clíc aquí!</a>');
+        $('#aFrac').text('¡Intenta Resolver Algo Primero!')
+        $('#bFrac').text('')
+        $('#rFrac').text('')
+        
+        
     });
 });

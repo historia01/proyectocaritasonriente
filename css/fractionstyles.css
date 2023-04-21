@@ -12,6 +12,7 @@ body {
 
 p {
   text-align: center;
+  color: white;
 }
 
 #mainContent {
@@ -27,8 +28,9 @@ p {
 
 #controlButtons {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  margin-inline: 1%;
 }
 
 .element {
@@ -52,6 +54,8 @@ input {
   border: solid 3px #4e2c0b;
   border-radius: 2px;
   color: white;
+  font-family: PinkChicken;
+  font-size: large;
 }
 
 input:active {
@@ -80,8 +84,8 @@ input:active {
 }
 
 #commentBox {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
   align-items: center;
   border-radius: 20px;
   border: 8px solid;
@@ -93,12 +97,14 @@ input:active {
 }
 
 #keyboardGrid {
+  grid-column: 1;
   align-self: flex-start;
   display: grid;
-  padding: 3%;
+  /*padding: 3%;*/
   grid-template-columns: repeat(3, 1fr);
   row-gap: 10px;
-  column-gap: 100%;
+  column-gap: 10px;
+  margin: 5%;
 }
 
 .keyboardButton {
@@ -108,8 +114,8 @@ input:active {
   background-color: #a05d1e;
   border-color: #FFFFFF;
   border-radius: 5px;
-  padding-inline: 120%;
-  margin: 10%;
+  /*padding-inline: 120%;
+  margin: 10%;*/
   font-family: PinkChicken;
   z-index: 2;
 }
@@ -118,12 +124,8 @@ input:active {
 	background-color: #ca8d53;
 }
 
-.commentText {
-  display: flex;
-  justify-content: start;
-}
-
 #navGrid {
+  grid-column: 3;
   display: grid;
   grid-template-rows: 3fr 3fr 3fr;
   grid-template-columns: 3fr 3fr 3fr;
@@ -168,10 +170,10 @@ input:active {
 }
 
 #navButtonAdd {
-  /*grid-row: 2 / 3;*/  
   grid-column: 2 / 3;
 }
 
-#navButtonC {
-  
+#helpText {
+  grid-column: 2;
+  text-align: center;  
 }

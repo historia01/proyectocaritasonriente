@@ -5,7 +5,6 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
         <script id="math" src="https://cdn.jsdelivr.net/npm/mathjs@11.7.0/lib/browser/math.min.js"></script>
         <script src="./scripts/keyboard.js"></script>
-        <script src="./scripts/nav.js"></script>
         <link rel="stylesheet" type="text/css" href="./css/fractionstyles.css">
         <script src="./scripts/main.js"></script> 
     </head>
@@ -16,11 +15,8 @@
                     <label for="numberA">a</label>
                     <input type="text" id="numberA" name="numberA" size="5" maxlength="5" readonly>
                     <div id="container" style="left: 0;">
-                        <div id="target-element">
-                        </div>
-                        <img id="my-image" width="220" src="media/weirdsmile.gif" alt="Image" style="display:none; position:absolute; z-index:1000; pointer-events:none; left: 6%; " >
                     </div>
-                    <p>—————</p>
+                    <p id="fraction1Op">—————</p>
                     <label for="numberB">b</label>
                     <input type="text" id="numberB" name="numberB" size="5" maxlength="5" readonly>
                 </div>
@@ -35,7 +31,7 @@
                 <div id="fraction2" class="element">
                     <label for="numberC">c</label>
                     <input type="text" id="numberC" name="numberC" size="5" maxlength="5" readonly>
-                    <p>—————</p>
+                    <p id="fraction2Op">—————</p>
                     <label for="numberD">d</label>
                     <input type="text" id="numberD" name="numberD" size="5" maxlength="5" readonly>
                 </div>
@@ -68,8 +64,8 @@
                 <br>
             </div>
             <div id="controlButtons">
-                <button type="button" id="compareButton" class="functionButton">Comparar</button>
                 <button type="button" id="clearButton" class="functionButton">Limpiar</button>
+                <button type="button" id="compareButton" class="functionButton">Comparar</button>
             </div>
             <div id="commentBox">
                 <div id="keyboardGrid">
@@ -82,12 +78,13 @@
                     <button class="keyboardButton" id="keyboardButton7">7</button>
                     <button class="keyboardButton" id="keyboardButton8">8</button>
                     <button class="keyboardButton" id="keyboardButton9">9</button>
-                    <button class="keyboardButton" id="keyboardButtonPlus">+</button>
+                    <button class="keyboardButton" id="keyboardButtonDel">←</button>
                     <button class="keyboardButton" id="keyboardButton0">0</button>
-                    <button class="keyboardButton" id="keyboardButtonMinus">-</button>
+                    <button class="keyboardButton" id="keyboardButtonMinusPlus">±</button>
                 </div>
                 <div id="helpText">
-                    <p class="commentText">this is a sample text</p>
+                    <h2 id="commentHeader" class="commentText">Bienvenido al Proyecto Carita Sonriente!</h2>
+                    <p id="commentPa1" class="commentText">This is some Placeholder Text!</p>
                 </div>
                 <div id="navGrid">
                     <button class="navButton" id="navButtonB">B</button>

@@ -44,7 +44,6 @@ $(document).ready(function() {
         $('#numberRC').val(fractionResults[9]);
         $('#numberRD').val(fractionResults[10]);
         $('.resultOperator').text((fractionResults[6]==1)?'+ ——————':'- ——————');
-        $('#my-image').show();
     });
     $("#clearButton").click(function() {
         $('#numberA').val('');
@@ -58,6 +57,5 @@ $(document).ready(function() {
         $('#numberRB').val('');
         $('#numberRC').val('');
         $('#numberRD').val('');
-        $('#my-image').hide();
     });
 });

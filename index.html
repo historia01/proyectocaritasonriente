@@ -4,15 +4,18 @@
         <title>Carita Sonriente</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
         <script id="math" src="https://cdn.jsdelivr.net/npm/mathjs@11.7.0/lib/browser/math.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
         <script src="./scripts/keyboard.js"></script>
         <script src="./scripts/main.js"></script> 
         <script src="./scripts/others.js"></script>
         <script src="./scripts/guideOthers.js"></script>
+        <script src="./scripts/charts.js"></script>
         <link rel="stylesheet" type="text/css" href="./css/fractionstyles.css">
     </head>
     <body>
         <div class="sidebar">
             <h1>Recursos Recomendados</h1>
+            <hr style="background-color: #e7ded5;">
             <h2>Videos</h2>
             <p>Video de Apoyo</p>
             <iframe width="100%" height="35%" src="https://www.youtube.com/embed/LVHo5xvsvO0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -23,9 +26,30 @@
             <h5>por <a href="example.com">Author</a></h5>
             <h2>Páginas Web</h2>
         </div>
+        <div class="sidebarRight">
+            <h1>Graficos</h1>
+            <hr style="background-color: #e7ded5;">
+            <h3 id="simFrac">Fraccion Nº1</h3>
+            <canvas id="fractionChartA"></canvas>
+            <hr>
+            <h3>Fraccion Nº2</h3>
+            <canvas id="fractionChartB"></canvas>
+            <h3>Resultado</h3>
+            <canvas id="fractionChartR"></canvas>
+            
+            <!-- <hr>
+            <h3>Fraccion A</h3>
+            <hr>
+            <h3>Fraccion B</h3>
+            <hr>
+            <h3>Fraccion Operacion</h3> -->
+        </div>
         <div id="otherButtonsRow">
-            <button class="otherButtons" id="fullscreenButton">🡼</button>
+            <button class="otherButtons" id="fullscreenButton">🖼</button>
             <button class="otherButtons" id="otherMenu">📖</button>
+        </div>
+        <div id="otherButtonsRowRight">
+            <button class="otherButtons" id="graphicsMenu">📈</button>
         </div>
         <div id="mainContent">
             <div class="row">

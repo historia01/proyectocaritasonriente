@@ -5,6 +5,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
         <script id="math" src="https://cdn.jsdelivr.net/npm/mathjs@11.7.0/lib/browser/math.min.js"></script>
         <script src="./scripts/keyboard.js"></script>
+        <script src="./scripts/nav.js"></script>
         <link rel="stylesheet" type="text/css" href="./css/fractionstyles.css">
         <script src="./scripts/main.js"></script> 
     </head>
@@ -13,7 +14,7 @@
             <div class="row">
                 <div id="fraction1" class="element">
                     <label for="numberA">a</label>
-                    <input type="text" id="numberA" name="numberA" size="5" maxlength="5">
+                    <input type="text" id="numberA" name="numberA" size="5" maxlength="5" readonly>
                     <div id="container" style="left: 0;">
                         <div id="target-element">
                         </div>
@@ -21,48 +22,48 @@
                     </div>
                     <p>—————</p>
                     <label for="numberB">b</label>
-                    <input type="text" id="numberB" name="numberB" size="5" maxlength="5">
+                    <input type="text" id="numberB" name="numberB" size="5" maxlength="5" readonly>
                 </div>
                 <br>
                 <div id="fractionOperator" class="element">
                     <label for="operatorAdd">+</label>
-                    <input type="radio" id="operatorAdd" name="operators" value="yes">
+                    <input type="radio" id="operatorAdd" name="operators" value="yes" readonly>
                     <label for="operatorSubs">-</label>
-                    <input type="radio" id="operatorSubs" name="operators" value = "no">
+                    <input type="radio" id="operatorSubs" name="operators" value = "no" readonly>
                 </div>
                 <br>
                 <div id="fraction2" class="element">
                     <label for="numberC">c</label>
-                    <input type="text" id="numberC" name="numberC" size="5" maxlength="5">
+                    <input type="text" id="numberC" name="numberC" size="5" maxlength="5" readonly>
                     <p>—————</p>
                     <label for="numberD">d</label>
-                    <input type="text" id="numberD" name="numberD" size="5" maxlength="5">
+                    <input type="text" id="numberD" name="numberD" size="5" maxlength="5" readonly>
                 </div>
                 <br>
                 <div id="fraction3" class="element">
                     <label for="numberE">e</label>
-                    <input type="text" id="numberE" name="numberE" size="5" maxlength="5">
+                    <input type="text" id="numberE" name="numberE" size="5" maxlength="5" readonly>
                     <label for="numberF">f</label>
-                    <input type="text" id="numberF" name="numberF" size="5" maxlength="5">
+                    <input type="text" id="numberF" name="numberF" size="5" maxlength="5" readonly>
                     <p>—————</p>
                     <label for="numberG">g</label>
-                    <input type="text" id="numberG" name="numberG" size="5" maxlength="5">
+                    <input type="text" id="numberG" name="numberG" size="5" maxlength="5" readonly>
                 </div>
                 <br>
                 <div id="fractionResult" class="element">
                     <label for="numberRA">RA</label>
-                    <input type="text" id="numberRA" name="numberRA" size="5" maxlength="5">
+                    <input type="text" id="numberRA" name="numberRA" size="5" maxlength="5" readonly>
                     <p class="resultOperator">—————</p>
                     <label for="numberRB">RB</label>
-                    <input type="text" id="numberRB" name="numberRB" size="5" maxlength="5">
+                    <input type="text" id="numberRB" name="numberRB" size="5" maxlength="5" readonly>
                 </div>
                 <br>
                 <div id="fractionResultSimplified" class="element">
                     <label for="numberRC">RC</label>
-                    <input type="text" id="numberRC" name="numberRC" size="5" maxlength="5">
+                    <input type="text" id="numberRC" name="numberRC" size="5" maxlength="5" readonly>
                     <p class="resultOperator">—————</p>
                     <label for="numberRD">RD</label>
-                    <input type="text" id="numberRD" name="numberRD" size="5" maxlength="5">
+                    <input type="text" id="numberRD" name="numberRD" size="5" maxlength="5" readonly>
                 </div>
                 <br>
             </div>
@@ -89,11 +90,12 @@
                     <p class="commentText">this is a sample text</p>
                 </div>
                 <div id="navGrid">
-                    <button class="navButton" id="navButtonL">←</button>
-                    <button class="navButton" id="navButtonR">→</button>
-                    <button class="navButton" id="navButtonU">↑</button>
-                    <button class="navButton" id="navButtonD">↓</button>
-                    <button class="navButton" id="navButtonC">●</button>
+                    <button class="navButton" id="navButtonB">B</button>
+                    <button class="navButton" id="navButtonD">D</button>
+                    <button class="navButton" id="navButtonA">A</button>
+                    <button class="navButton" id="navButtonMinus">-</button>
+                    <button class="navButton" id="navButtonAdd">+</button>
+                    <button class="navButton" id="navButtonC">C</button>
                 </div>
             </div>
         </div>

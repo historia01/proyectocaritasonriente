@@ -14,6 +14,14 @@ $(document).ready(function(){
             elem.msRequestFullscreen();
           }
         }
-        
+        // check if screen orientation is supported
+        if(screen.orientation.lock) {
+          // lock screen to landscape orientation
+          screen.orientation.lock("landscape").then(function() {
+            console.log("Orientation locked to landscape");
+          }).catch(function(error) {
+            console.error("Failed to lock orientation", error);
+          });
+        }
     });
 });

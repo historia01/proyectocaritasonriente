@@ -152,7 +152,6 @@ input:active {
 }
 
 .navButton {
-  align-self: flex-end;
   font-size: larger;
   color: white;
   border: 10%;
@@ -160,7 +159,7 @@ input:active {
   border-color: #FFFFFF;
   border-radius: 5px;
   font-family: PinkChicken;
-  padding-inline: 20px;
+  /*padding-inline: 20px;*/
 }
 
 .navButton:hover {
@@ -194,4 +193,8 @@ input:active {
 #helpText {
   grid-column: 2;
   text-align: center;  
+}
+
+#commentPa1 {
+  font-size: medium;
 }

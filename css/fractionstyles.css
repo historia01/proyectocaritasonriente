@@ -64,7 +64,8 @@ p {
 }
 
 .element {
-    margin: 10px !important;
+    position: relative;
+    margin: 3px !important;
     padding: 10px;
     background-color: lightgray;
     background-image: url(../media/backgroundTexture.jpg);
@@ -72,6 +73,38 @@ p {
     border: solid 3px #4e2c0b;
     border-radius: 5%;
     text-align: center;
+}
+
+.equalSign {
+  position: absolute;
+  z-index: 5;
+  top: 19%;
+  left: 89%;
+  background-color: #7d4714;
+  border: solid 3px #4e2c0b;
+  border-radius: 13px;
+  height: 23%;
+  width: 24%;
+  padding: 1%;
+}
+
+.opSign {
+  position: absolute;
+  z-index: 5;
+  top: 9%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: solid 3px #4e2c0b;
+  font-size: 100%;
+  text-anchor: middle;
+  width: 15%;
+  border-radius: 43%;
+  background-image: url("../media/backgroundTexture.jpg");
+}
+
+#sign1 {
+  text-align: center;
+  height: fit-content;
 }
 
 label {

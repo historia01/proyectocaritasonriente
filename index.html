@@ -7,58 +7,64 @@
         <script src="./scripts/keyboard.js"></script>
         <link rel="stylesheet" type="text/css" href="./css/fractionstyles.css">
         <script src="./scripts/main.js"></script> 
+        <script src="./scripts/others.js"></script>
     </head>
     <body>
+        <div id="otherButtonsRow">
+            <button class="otherButtons" id="fullscreenButton">⌈ ⌋</button>
+            <button class="otherButtons" id="otherMenu">⁙</button>
+        </div>
         <div id="mainContent">
             <div class="row">
                 <div id="fraction1" class="element">
-                    <label for="numberA">a</label>
+                    <!-- <label for="numberA">a</label> -->
                     <input type="text" id="numberA" name="numberA" size="5" maxlength="5" readonly>
                     <div id="container" style="left: 0;">
                     </div>
                     <p id="fraction1Op">—————</p>
-                    <label for="numberB">b</label>
+                    <!-- <label for="numberB">b</label> -->
                     <input type="text" id="numberB" name="numberB" size="5" maxlength="5" readonly>
                 </div>
                 <br>
                 <div id="fractionOperator" class="element">
                     <label for="operatorAdd">+</label>
                     <input type="radio" id="operatorAdd" name="operators" value="yes" readonly>
+                    <br>
                     <label for="operatorSubs">-</label>
                     <input type="radio" id="operatorSubs" name="operators" value = "no" readonly>
                 </div>
                 <br>
                 <div id="fraction2" class="element">
-                    <label for="numberC">c</label>
+                    <!-- <label for="numberC">c</label> -->
                     <input type="text" id="numberC" name="numberC" size="5" maxlength="5" readonly>
                     <p id="fraction2Op">—————</p>
-                    <label for="numberD">d</label>
+                    <!-- <label for="numberD">d</label> -->
                     <input type="text" id="numberD" name="numberD" size="5" maxlength="5" readonly>
                 </div>
                 <br>
                 <div id="fraction3" class="element">
-                    <label for="numberE">e</label>
+                    <!-- <label for="numberE">e</label> -->
                     <input type="text" id="numberE" name="numberE" size="5" maxlength="5" readonly>
-                    <label for="numberF">f</label>
+                    <!-- <label for="numberF">f</label> -->
                     <input type="text" id="numberF" name="numberF" size="5" maxlength="5" readonly>
                     <p>—————</p>
-                    <label for="numberG">g</label>
+                    <!-- <label for="numberG">g</label> -->
                     <input type="text" id="numberG" name="numberG" size="5" maxlength="5" readonly>
                 </div>
                 <br>
                 <div id="fractionResult" class="element">
-                    <label for="numberRA">RA</label>
+                    <!-- <label for="numberRA">RA</label> -->
                     <input type="text" id="numberRA" name="numberRA" size="5" maxlength="5" readonly>
                     <p class="resultOperator">—————</p>
-                    <label for="numberRB">RB</label>
+                    <!-- <label for="numberRB">RB</label> -->
                     <input type="text" id="numberRB" name="numberRB" size="5" maxlength="5" readonly>
                 </div>
                 <br>
                 <div id="fractionResultSimplified" class="element">
-                    <label for="numberRC">RC</label>
+                    <!-- <label for="numberRC">RC</label> -->
                     <input type="text" id="numberRC" name="numberRC" size="5" maxlength="5" readonly>
                     <p class="resultOperator">—————</p>
-                    <label for="numberRD">RD</label>
+                    <!-- <label for="numberRD">RD</label> -->
                     <input type="text" id="numberRD" name="numberRD" size="5" maxlength="5" readonly>
                 </div>
                 <br>

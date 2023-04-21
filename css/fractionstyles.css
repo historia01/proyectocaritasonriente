@@ -15,15 +15,33 @@ p {
   color: white;
 }
 
+#otherButtonsRow {
+  position: absolute;
+  z-index: 2;
+}
+
+.otherButtons {
+  width: 48px;
+  height: 48px;
+  color: white;
+  font-family: PinkChicken;
+  font-weight: 800;
+  background-image: url("../media/backgroundTexture.jpg");
+  background-size: cover;
+  border: solid 5px #4e2c0b;
+  border-radius: 3px;
+}
+
 #mainContent {
-  margin: 2%
+  margin: 1%;
+  z-index: 1;
 }
 
 .row {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 2%;
+    margin: 0%;
 }
 
 #controlButtons {

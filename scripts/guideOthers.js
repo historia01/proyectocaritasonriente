@@ -8,15 +8,6 @@ $(document).ready(function() {
             $(".sidebar").css("left", "-300px");
         }
     });
-    //Right sidebar graphics
-    $("#graphicsMenu").click(function(){ 
-        if($(".sidebarRight").css("right")=="-300px"){
-            $(".sidebarRight").css("right", "0");
-        }
-        else {
-            $(".sidebarRight").css("right", "-300px");
-        }
-    });
     //Credits menu
     //Modify text
     $("#compareButton").click(function() {

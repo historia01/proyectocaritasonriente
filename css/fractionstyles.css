@@ -329,3 +329,41 @@ a {
 #fractionChartSimplified {
   display: none;
 }
+
+#bottomAreaTrigger {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  /*transform: scale(75%);*/
+  padding: 10px 20px;
+  opacity: 50%;
+  background-color: #4e2c0b;
+  color: white;
+  border: solid 3px #a05d1e;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 10;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#bottomAreaTrigger:hover {
+  opacity: 100%;
+}
+
+.lowMenu {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 80%;
+  background-image: url('../media/backgroundTexture.jpg');
+  border: 6px solid #4e2c0b;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  z-index: 9;
+  padding: 1%;
+  transition: top 0.5s ease-in-out;
+}

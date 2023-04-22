@@ -9,6 +9,14 @@ $(document).ready(function() {
         }
     });
     //Credits menu
+    $("#bottomAreaTrigger").click(function() {
+        if($(".lowMenu").css("display")=="none"){
+            $(".lowMenu").css("display", "unset");
+        }
+        else {
+            $(".lowMenu").css("display", "none");
+        }
+      });      
     //Modify text
     $("#compareButton").click(function() {
         console.log("loaded Function");
@@ -20,8 +28,6 @@ $(document).ready(function() {
         else {
             $("#commentHeader").text('Diferente Denominador');
             $("#commentPa1").html('En este caso se multiplica los<br>denominadores y se multiplican en forma de X<br>como muestra el gráfico');
-        }
-        
-        
+        }    
     });
 });

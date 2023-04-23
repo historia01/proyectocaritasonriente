@@ -48,6 +48,11 @@ function solveFraction(param11, param12, param21, param22, paramOp){
     return [a, b, c, d, e, f, g, math.abs(c), math.abs(d), math.abs(e), math.abs(f)]
 };
 $(document).ready(function() {
+    $("#numberA").val("1");
+    $("#numberB").val("3");
+    $("#numberC").val("2");
+    $("#numberD").val("4");
+    $('input[name="operators"][value="yes"]').prop('checked', true);
     $("#compareButton").click(function() {
         let _11 = $('#numberA').val();
         let _12 = $('#numberB').val();

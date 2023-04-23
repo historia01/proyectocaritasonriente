@@ -376,7 +376,7 @@ a {
   transform: translate(-50%, -50%);
   width: 70%;
   height: 80%;
-  background-image: url('../media/backgroundTexture.jpg');
+  background-image: url('../media/backgroundTextureLight.jpg');
   border: 6px solid #4e2c0b;
   border-radius: 15px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);

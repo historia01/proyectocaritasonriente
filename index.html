@@ -12,6 +12,7 @@
         <script src="./scripts/charts.js"></script>
         <script src="./scripts/orientation.js"></script> 
         <link rel="stylesheet" type="text/css" href="./css/fractionstyles.css">
+        <link rel="stylesheet" type="text/css" href="./css/faceAnim.css">
     </head>
     <body>
         <div id="loading-screen">
@@ -22,11 +23,11 @@
             <hr style="background-color: #e7ded5;">
             <h2>Videos</h2>
             <p>Video de Apoyo</p>
-            <iframe width="100%" height="35%" src="https://www.youtube.com/embed/LVHo5xvsvO0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe width="100%" height="40%" src="https://www.youtube.com/embed/LVHo5xvsvO0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             <h5>por <a href="https://www.youtube.com/@danielcarreon">Daniel Carreon</a></h5>
             <hr>
             <p>Video de Apoyo</p>
-            <iframe width="100%" height="35%" src="https://www.youtube.com/embed/X_6EPkvIAGg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe width="100%" height="40%" src="https://www.youtube.com/embed/X_6EPkvIAGg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             <h5>por <a href="example.com">Author</a></h5>
             <h2>Páginas Web</h2>
         </div>
@@ -81,6 +82,11 @@
                     <br>
                     <label for="operatorSubs">-</label>
                     <input type="radio" id="operatorSubs" name="operators" value = "no" disabled readonly>
+                    <div class="animContainer">
+                        <div class="animObj" id="animLine1">1</div>
+                        <div class="animObj" id="animLine2">2</div>
+                        <div class="animObj" id="animLine3">3</div>
+                    </div>
                 </div>
                 <br>
                 <div id="fraction2" class="element">
@@ -139,7 +145,7 @@
                     <button class="keyboardButton" id="keyboardButton9">9</button>
                     <button class="keyboardButton" id="keyboardButtonDel">←</button>
                     <button class="keyboardButton" id="keyboardButton0">0</button>
-                    <button class="keyboardButton" id="keyboardButtonMinusPlus">±</button>
+                    <button class="keyboardButton" id="keyboardButtonMinusPlus">x</button>
                 </div>
                 <div id="helpText">
                     <h3 id="commentHeader" class="commentText">Bienvenido al Proyecto<br>Carita Sonriente!</h3>

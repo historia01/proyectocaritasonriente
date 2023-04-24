@@ -1,0 +1,87 @@
+.animContainer {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    z-index: 6;
+    top: 10%;
+    left: -96%;
+    height: 19%;
+    width: 24%;
+    padding: 1%;
+    transform-origin: right;
+  }
+
+.animObj {
+    position: relative;
+    width: 100px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #FFF;
+    
+}
+
+#animLine1 {
+    animation-name: draw-line1;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    transform-origin: left;
+    transform: rotate(-15deg);
+    top: 350%;
+}
+
+#animLine2 {
+    top: -73%;
+    animation-name: draw-line2;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    transform-origin: left;
+    transform: rotate(15deg);
+}
+
+#animLine3 {
+    top: 183%;
+    animation-name: draw-line3;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    transform-origin: center;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes draw-line1 {
+    0% {
+        width: 0;
+    }
+    50% {
+        width: 536%;
+    }
+    100% {
+        width: 1200%;
+    }
+}
+@keyframes draw-line2 {
+    0% {
+        width: 0;
+    }
+    50% {
+        width: 536%;
+    }
+    100% {
+        width: 1200%;
+    }
+}
+@keyframes draw-line3 {
+    0% {
+        width: 0;
+        transform: translate(-50%, -50%) scale(0);
+    }
+    50% {
+        width: 536%;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+        width: 1200%;
+    }
+}

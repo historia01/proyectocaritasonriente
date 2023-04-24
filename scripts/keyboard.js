@@ -100,13 +100,7 @@ $(document).ready(function() {
         $(currentFocus).val(value1.substr(0, value1.length -1 ));
     });
     $("#keyboardButtonMinusPlus").click(function() {
-        console.log("Minus Plus button Pressed")
-        let value1 = $(currentFocusOp).text();
-        if(value1 == "- —————"){
-            $(currentFocusOp).text('—————');
-        }
-        else{
-            $(currentFocusOp).text('- —————');
-        }
+        console.log("Minus Plus button Pressed");
+        $(currentFocus).val('');
     });
 });

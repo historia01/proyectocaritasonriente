@@ -41,13 +41,13 @@
 }
 
 #animLine3 {
-    top: 183%;
+    top: 130%;
+    border: solid 0px #FFF;    
     animation-name: draw-line3;
-    animation-duration: 2s;
+    animation-duration: 4s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
     transform-origin: center;
-    transform: translate(-50%, -50%);
 }
 
 @keyframes draw-line1 {
@@ -75,13 +75,19 @@
 @keyframes draw-line3 {
     0% {
         width: 0;
-        transform: translate(-50%, -50%) scale(0);
     }
     50% {
-        width: 536%;
-        transform: translate(-50%, -50%) scale(1);
+        width: 1133%;
+    }
+    70% {
+        background-color: #ffffff00;
     }
     100% {
-        width: 1200%;
-    }
+        width: 1133%;
+        border: solid 24px white;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-radius: 50%;
+    } 
 }

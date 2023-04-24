@@ -1,33 +1,86 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>CSS Animation Creating a Circle from a Line</title>
+	<title>CSS Animation Drawing a Smiling Face</title>
 	<style>
-		.line {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			width: 100px;
-			height: 3px;
-			background-color: #000;
-			transform-origin: center;
-			animation-name: create-circle;
+		.circle {
+			position: relative;
+			width: 150px;
+			height: 150px;
+			border-radius: 50%;
+			border: 3px solid #000;
+			animation-name: draw-circle;
 			animation-duration: 2s;
 			animation-timing-function: ease-in-out;
 			animation-iteration-count: infinite;
 		}
 		
-		@keyframes create-circle {
+		.eyes {
+			position: absolute;
+			top: 40%;
+			left: 25%;
+			width: 20%;
+			height: 20%;
+			background-color: #000;
+			border-radius: 50%;
+			animation-name: draw-eyes;
+			animation-duration: 2s;
+			animation-timing-function: ease-in-out;
+			animation-iteration-count: infinite;
+		}
+		
+		.mouth {
+			position: absolute;
+			top: 60%;
+			left: 10%;
+			width: 80%;
+			height: 20%;
+			border-radius: 50%;
+			border-top: 3px solid #000;
+			animation-name: draw-mouth;
+			animation-duration: 2s;
+			animation-timing-function: ease-in-out;
+			animation-iteration-count: infinite;
+		}
+		
+		@keyframes draw-circle {
 			0% {
-				transform: rotate(0deg);
+				transform: scale(0);
 			}
 			100% {
-				transform: rotate(360deg);
+				transform: scale(1);
+			}
+		}
+		
+		@keyframes draw-eyes {
+			0% {
+				transform: scale(0);
+			}
+			50% {
+				transform: scale(1.5);
+			}
+			100% {
+				transform: scale(1);
+			}
+		}
+		
+		@keyframes draw-mouth {
+			0% {
+				transform: scaleY(0);
+			}
+			50% {
+				transform: scaleY(1.5);
+			}
+			100% {
+				transform: scaleY(1);
 			}
 		}
 	</style>
 </head>
 <body>
-	<div class="line"></div>
+	<div class="circle">
+		<div class="eyes"></div>
+		<div class="mouth"></div>
+	</div>
 </body>
 </html>

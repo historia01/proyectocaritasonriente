@@ -32,6 +32,10 @@ $(document).ready(function(){
       let wb2 = $(".welcomeScreen");
       if (document.fullscreenElement !== null) {
         console.log("The document is in fullscreen mode.");
+        wb2.animate({opacity: 0}, 500);
+        setTimeout(function(){
+          wb2.remove();
+        }, 1500);
       } else {
         requestFS();
         wb2.animate({opacity: 0}, 500);

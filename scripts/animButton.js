@@ -3,24 +3,31 @@ $(document).ready(function(){
         if($("#numberB").val() == $("#numberD").val()){
             $('.animContainer').animate({opacity: 100}, 1000);
             $('#animLine1').css({
-                "transform" : "rotate(0deg)"
+                "transform" : "rotate(0deg)",
+                "top" : "371%"
             });
             $('#animLine2').css({
                 "transform" : "rotate(0deg)",
-                "top" : "-36%"
+                "top" : "-80%"
             });
             $('#animLine3').css({
                 "display" : "none"
             });
         }
         else{
-            $('.animContainer').css("display", "unset");
+            $('.animContainer').css("opacity","0");
             $('.animContainer').animate({opacity: 100}, 1000);
-            setTimeout(function(){
-                //$('.animContainer').animate({opacity: 0}, 900);
-                $('.animObj').animate($('.animObj').css("animation-iteration-count", 3), 100);
-                //$('.animContainer').animate({opacity: 100}, 1200);
-            }, 4000)
-        }
+            $('#animLine1').css({
+                "transform" : "rotate(-23deg)", 
+                "top" : "180%"
+            });
+            $('#animLine2').css({
+                "transform" : "rotate(24deg)",
+                "top" : "59%"
+            });
+            $('#animLine3').css({
+                "display" : "unset"
+            });   
+        }   
     });
 });

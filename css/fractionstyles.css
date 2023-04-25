@@ -69,6 +69,14 @@ h3 {
     margin: 0%;
 }
 
+input[type=radio]{
+ display: none; 
+}
+
+#fraction2 input {
+  text-align: right;
+}
+
 .fractionLine {
   margin: -2%;
 }

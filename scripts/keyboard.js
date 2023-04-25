@@ -12,6 +12,16 @@ $(document).ready(function() {
         $("#numberD").css("border-color", "#4e2c0b");
         $("#numberD").css("background-color", "#7d4714");
     }
+    function selectOperator(){
+        if($("#operatorSubs").prop("checked") == true){
+            $("#opMinus").css("color", "#7086ff");
+            $("#opPlus").css("color", "white");
+        }
+        else {
+            $("#opMinus").css("color", "white");
+            $("#opPlus").css("color", "#7086ff");
+        }
+    }
     //Navigation
     $("#navButtonA").click(function() {
         resetColor();
@@ -43,9 +53,11 @@ $(document).ready(function() {
     });
     $("#navButtonMinus").click(function() {
         $("#operatorSubs").prop("checked", true);
+        selectOperator();
     });
     $("#navButtonAdd").click(function() {
         $("#operatorAdd").prop("checked", true);
+        selectOperator();
     });
     //NumPad
     $("#keyboardButton1").click(function() {

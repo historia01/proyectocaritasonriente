@@ -1,17 +1,49 @@
 .animContainer {
-    opacity: 0;
+    opacity: 100;
     display: flex;
     flex-direction: column;
     position: absolute;
     z-index: 6;
-    top: 8%;
-    left: -74%;
+    top: 9%;
+    left: -140%;
     height: 19%;
-    width: 24%;
+    width: 26%;
     padding: 1%;
     transform-origin: right;
   }
 
+.animObj {
+    position: relative;
+    width: 122px;
+    height: 13px;
+    border-radius: 5px;
+    background-color: #FFF;
+    animation-iteration-count: infinite;
+    
+}
+
+#animLine1 {
+    transform: rotate(-23deg);
+    top: 180%;
+}
+
+#animLine2 {
+    top: 59%;
+    transform: rotate(24deg);
+}
+
+#animLine3 {
+    top: 59%;
+    width: 98px;
+    height: 151px;
+    border: solid 11px #000;
+    border-color: transparent transparent #FFF transparent;
+    border-radius: 0px 0 223px 160%/100px;
+    background: transparent;
+    left: -10%;
+}
+
+/* 
 .animObj {
     position: relative;
     width: 159px;
@@ -59,9 +91,9 @@
     padding: 23px;
     transform: scale(0.7);
     left: -193%;
-}
+} */
 
-@keyframes draw-line1 {
+/* @keyframes draw-line1 {
     0% {
         width: 0;
     }
@@ -94,7 +126,9 @@
     100% {
         width: 160px;
         padding: 23px;
-        /*! border-top: solid 24px transparent; */
+        /*! border-top: solid 24px transparent;
         top: -271%;
     } 
 }
+
+ */

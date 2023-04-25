@@ -103,6 +103,8 @@ $(document).ready(function() {
         $('#bFrac').text('')
         $('#rFrac').text('')
         $('.animContainer').animate({opacity: 0}, 500);
+        $("#opMinus").css("color", "white");
+        $("#opPlus").css("color", "white");
         setTimeout(function(){
             $('#animLine1').css({
                 "transform" : "rotate(-23deg)", 

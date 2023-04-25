@@ -101,7 +101,18 @@ $(document).ready(function() {
         $('#aFrac').text('¡Intenta Resolver Algo Primero!')
         $('#bFrac').text('')
         $('#rFrac').text('')
-        
-        
+        $('.animContainer').animate({opacity: 0}, 500);
+        setTimeout(function(){
+            $('#animLine1').css({
+                "transform" : "rotate(-18deg)"
+            });
+            $('#animLine2').css({
+                "transform" : "rotate(17deg)",
+                "top" : "-88%"
+            });
+            $('#animLine3').css({
+                "display" : "unset"
+            });   
+        }, 900); 
     });
 });

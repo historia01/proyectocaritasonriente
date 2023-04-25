@@ -1,10 +1,11 @@
 .animContainer {
+    opacity: 0;
     display: flex;
     flex-direction: column;
     position: absolute;
     z-index: 6;
-    top: 10%;
-    left: -96%;
+    top: 8%;
+    left: -74%;
     height: 19%;
     width: 24%;
     padding: 1%;
@@ -13,10 +14,11 @@
 
 .animObj {
     position: relative;
-    width: 100px;
+    width: 159px;
     height: 10px;
     border-radius: 5px;
     background-color: #FFF;
+    animation-iteration-count: infinite;
     
 }
 
@@ -24,30 +26,39 @@
     animation-name: draw-line1;
     animation-duration: 2s;
     animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
     transform-origin: left;
-    transform: rotate(-15deg);
-    top: 350%;
+    transform: rotate(-18deg);
+    top: 373%;
+    background: antiquewhite;
 }
 
 #animLine2 {
-    top: -73%;
+    top: -88%;
     animation-name: draw-line2;
     animation-duration: 2s;
     animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
     transform-origin: left;
-    transform: rotate(15deg);
+    transform: rotate(17deg);
+    background: bisque;
 }
 
 #animLine3 {
-    top: 130%;
+    top: -260%;
     border: solid 0px #FFF;    
-    animation-name: draw-line3;
-    animation-duration: 4s;
+    animation-name: draw-line3-1;
+    animation-duration: 2s;
     animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
     transform-origin: center;
+    width: 159px;
+    border: solid 39px antiquewhite;
+    border-top: solid 24px transparent;
+    border-left: none;
+    border-right: none;
+    border-radius: 617%;
+    background-color: #ffffff00;
+    padding: 23px;
+    transform: scale(0.7);
+    left: -193%;
 }
 
 @keyframes draw-line1 {
@@ -55,39 +66,35 @@
         width: 0;
     }
     50% {
-        width: 536%;
+        width: 82px;
     }
     100% {
-        width: 1200%;
+        width: 159px;
     }
 }
+
 @keyframes draw-line2 {
     0% {
         width: 0;
     }
     50% {
-        width: 536%;
+        width: 82px;
     }
     100% {
-        width: 1200%;
+        width: 159px;
     }
 }
-@keyframes draw-line3 {
+@keyframes draw-line3-1-0 {
     0% {
         width: 0;
-    }
-    50% {
-        width: 1133%;
-    }
-    70% {
-        background-color: #ffffff00;
+        padding: 0;
+        top: -59%;
+        left: 5%;
     }
     100% {
-        width: 1133%;
-        border: solid 24px white;
-        border-top: none;
-        border-left: none;
-        border-right: none;
-        border-radius: 50%;
+        width: 160px;
+        padding: 23px;
+        /*! border-top: solid 24px transparent; */
+        top: -271%;
     } 
 }

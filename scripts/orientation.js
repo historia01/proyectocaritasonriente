@@ -14,10 +14,11 @@ $(document).ready(function(){
         console.log("Device is in landscape mode");
         windowVar.remove();
         destroyMe.remove();
-//        windowVar.css("display", "unset");
+ //       windowVar.css("display", "unset");
     }
     $("#closePrompt").click(function(){
         windowVar.remove();
         destroyMe.remove();
-    });   
+        requestFS();
+    });  
 });

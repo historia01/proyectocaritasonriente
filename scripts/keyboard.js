@@ -14,12 +14,20 @@ $(document).ready(function() {
     }
     function selectOperator(){
         if($("#operatorSubs").prop("checked") == true){
-            $("#opMinus").css("color", "#7086ff");
-            $("#opPlus").css("color", "white");
+            $("#opMinus").css({
+                "color" : "#7086ff"
+            });
+            $("#opPlus").css({
+                "color" : "white"
+            });
         }
         else {
-            $("#opMinus").css("color", "white");
-            $("#opPlus").css("color", "#7086ff");
+            $("#opPlus").css({
+                "color" : "#7086ff"
+            });
+            $("#opMinus").css({
+                "color" : "white"
+            });
         }
     }
     //Navigation

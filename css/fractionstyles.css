@@ -3,6 +3,11 @@
   src: url(../media/fonts/PinkChicken-Regular.ttf);
 }
 
+@font-face {
+  font-family: TOYZ;
+  src: url(../media/fonts/TOYZ.ttf);
+}
+
 body {
   font-family: PinkChicken;
   font-weight: 300;
@@ -285,7 +290,7 @@ input:active {
   padding: 10px;
   box-sizing: border-box;
   display: unset;
-  z-index: 6;
+  z-index: 7;
   color: white;
   overflow-y: auto;
   transition: all 0.3s ease;
@@ -446,4 +451,94 @@ a {
   100% {
     transform: rotate(360deg);
   }
+}
+
+h1 {
+  color: white;
+}
+
+h6 {
+  color: white;
+}
+
+.logos {
+  max-width: 20%;
+  max-height: 30%;
+  min-width: 10%;
+  min-height: 10%;
+}
+
+#logoArea {
+  position: fixed;
+  top: 35%;
+  left: 80%;
+  /*! padding: -8px; */
+}
+
+#logoSchool {
+  position: fixed;
+  top: 3%;
+  left: 80%;
+}
+
+#versionNumber {
+  position: fixed;
+  top: 86%;
+  left: 87%;
+}
+
+.otherButtonsImage{
+  max-width: 19%;
+  max-height: 12%;
+  min-width: 2%;
+  min-height: 2%;
+}
+
+#githubIcon {
+  position: fixed;
+  top: 87%;
+  left: 1%;
+}
+
+#creditsTextDev {
+  position: fixed;
+  top: 64%;
+  left: 81%;
+}
+
+.creditsWindow {
+  font-size: 100%;
+}
+
+.welcomeScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 80%;
+  background-image: url('../media/backgroundTextureLight.jpg');
+  border: 6px solid #3a2612;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  z-index: 9;
+  padding: 1%;
+  transition: top 0.5s ease-in-out;
+}
+
+.otherButtons {
+  width: 48px;
+  height: 48px;
+  color: white;
+  font-family: PinkChicken;
+  font-weight: 800;
+  font-size: 20px;
+  background-image: url("../media/backgroundTexture.jpg");
+  background-size: cover;
+  border: solid 5px #4e2c0b;
+  border-radius: 3px;
 }

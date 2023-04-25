@@ -13,6 +13,9 @@ $(document).ready(function(){
             $('#animLine3').css({
                 "display" : "none"
             });
+            setTimeout(function(){
+                $('.animContainer').animate({opacity: 0}, 1000);
+            },2000);
         }
         else{
             $('.animContainer').css("opacity","0");
@@ -28,6 +31,15 @@ $(document).ready(function(){
             $('#animLine3').css({
                 "display" : "unset"
             });   
-        }   
+            setTimeout(function(){
+                $('.animContainer').animate({opacity: 0}, 1000);
+            },2000);
+        }
+        $("#triggerAni").click(function(event){
+            event.preventDefault();
+            $('.animContainer').animate({opacity: 100}, 1500);
+            $('.animContainer').animate({opacity: 0}, 3000);
+            console.log('trigger pressed');
+        })
     });
 });

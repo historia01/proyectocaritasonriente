@@ -27,7 +27,7 @@ $(document).ready(function() {
         }
         else {
             $("#commentHeader").text('Diferente Denominador');
-            $("#commentPa1").html('En este caso se multiplica los<br>denominadores y se multiplican en forma de X<br>como muestra el gráfico');
+            $("#commentPa1").html('En este caso se multiplica los<br>denominadores y se multiplican en forma de X<br>como <a href="#" id="triggerAni">muestra el gráfico</a>');
         }    
     });
 });

@@ -49,6 +49,7 @@ function solveFraction(param11, param12, param21, param22, paramOp){
 };
 $(document).ready(function() {
     $('.animContainer').animate({opacity: 0}, 0);
+    $("#opPlus").css("color", "#7086ff");
     $("#numberA").val("1");
     $("#numberB").val("3");
     $("#numberC").val("2");
@@ -105,6 +106,14 @@ $(document).ready(function() {
         $('.animContainer').animate({opacity: 0}, 500);
         $("#opMinus").css("color", "white");
         $("#opPlus").css("color", "white");
+        $("#operatorAdd").prop("checked", true);
+        $("#opPlus").css({
+            "color" : "#7086ff"
+        });
+        $("#opMinus").css({
+            "color" : "white"
+        });
+
         setTimeout(function(){
             $('#animLine1').css({
                 "transform" : "rotate(-23deg)", 

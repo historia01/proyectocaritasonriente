@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <title>Carita Sonriente</title>
+        <title>Carita Feliz</title>
+        <link rel="icon" type="image/x-icon" href="./media/favicon.ico">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
         <script id="math" src="https://cdn.jsdelivr.net/npm/mathjs@11.7.0/lib/browser/math.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
@@ -18,7 +19,13 @@
     <body>
         <div id="loading-screen">
             <div class="spinner"></div>
-          </div>          
+          </div>
+        <div class="welcomeScreen">
+            <div>
+                <h1 style="font-family: TOYZ; color: white;">PROYECTO<br><a style="font-size: larger; color:rgb(210, 236, 165)">CARITA FELIZ</a></h1>
+                <button class="otherButtons" id="fullscreenButton2" style="width: 100%; background: #4e2c0bd4;">EMPEZAR</button>
+            </div>
+        </div>         
         <div class="sidebar">
             <h1>Recursos Recomendados</h1>
             <hr style="background-color: #e7ded5;">
@@ -44,8 +51,24 @@
             <canvas id="fractionChartR"></canvas>
         </div>
         <div class="lowMenu">
-            <div>
-                p
+            <div class="creditsWindow">
+                <div class="creditsText" style="max-width: 75%;">
+                    <h1 style="font-family: TOYZ; color: white;">⭐ PROYECTO ⭐<br><a style="font-size: larger; color:rgb(210, 236, 165)">CARITA FELIZ</a></h1>
+                    <p>¡Una calculadora de fracciones de navegador simple<br>y con una interfaz simple y amigable!, desarrollada en HTML, CSS,<br>JavaScript y JQuery. Para mas información<br>ver el <a href="https://github.com/historia01/proyectocaritasonriente/">Repositorio en GitHub</a><br>Este proyecto fue posible gracias al<br>apoyo del <a>Area de Matemáticas de la UEDCGD</a></p>
+                    <hr style="background-color: azure; border-radius: 5px;">
+                    <p>¿Encontraste un error? <a href="https://github.com/historia01/proyectocaritasonriente/issues/new">¡Haz click Aquí</a> para reportarlo!</p> 
+                </div>
+                <img src="./media/logoMathArea.png" id="logoArea" class="logos">
+                <img src="./media/logoSchool.png" id="logoSchool"class="logos">
+                <a href="https://github.com/historia01/proyectocaritasonriente">
+                    <img src="./media/githublogo.png" id="githubIcon"class="otherButtonsImage">
+                </a>
+                <p id="creditsTextDev">Desarrollado Por:<br><a href="https://github.com/historia01">historia01</a></p>
+                <div class="footer">
+                    <h6 id="versionNumber">
+                        ver. a1.00426
+                    </h6>
+                </div>  
             </div>
         </div>
         <div id="destroyMe" style="background-image: url('./media/backgroundTextureDark.jpg'); z-index: 50; position: fixed; top: 0; left: 0; bottom: 0; right: 0;">

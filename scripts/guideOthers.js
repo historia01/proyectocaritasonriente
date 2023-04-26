@@ -11,7 +11,9 @@ $(document).ready(function() {
     //Credits menu
     $("#bottomAreaTrigger").click(function() {
         if($(".lowMenu").css("display")=="none"){
-            $(".lowMenu").css("display", "unset");
+            $(".lowMenu").css({
+                "display": "unset"
+            });
         }
         else {
             $(".lowMenu").css("display", "none");

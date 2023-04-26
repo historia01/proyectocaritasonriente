@@ -12,9 +12,9 @@ $(document).ready(function(){
         windowVar.css("display", "unset");
     } else {
         console.log("Device is in landscape mode");
-        windowVar.remove();
-        destroyMe.remove();
- //       windowVar.css("display", "unset");
+//        windowVar.remove();
+//        destroyMe.remove();
+       windowVar.css("display", "unset");
     }
     $("#closePrompt").click(function(){
         windowVar.remove();

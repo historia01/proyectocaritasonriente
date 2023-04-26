@@ -1,0 +1,66 @@
+.activities {
+  display: grid;
+  grid-template-columns: 3fr 3fr 2fr;
+  grid-auto-rows: auto;
+  row-gap: 0;
+  background-color: #7d4714;
+  border: 3px dashed white;
+  border-radius: 5%;
+    margin-block: 4%;
+}
+
+.actTitle {
+  color: #c3e3ff;
+  font-size: 100%;
+  grid-column: 1;
+  grid-row: 1;
+  text-align: end;
+    padding-right: 4%;
+  font-family: unset;
+  align-self: center;
+}
+
+.actSTitle {
+    text-align: end;
+    grid-column: 2/ -1;
+    grid-row: 1;
+    font-size: 90%;
+    text-align: left;
+    padding-right: 1%;
+    padding-left: 1%;
+    /*! font-family: unset; */
+    align-self: center;
+}
+
+.actDesc {
+     grid-column: 1/ -1;
+    grid-row: 2;
+    border: 3px #4e2c0b solid;
+    margin-inline: 10%;
+    background: #4e2c0b;
+    border-radius: 5%; 
+    
+}
+
+.rating {
+    grid-column: 3;
+    grid-row: 3;
+    text-align: right;
+    margin-inline: 5%;
+    border: 2px solid gold;
+    background: gold;
+    opacity: 100%;
+    border-radius: 5px;
+    font-size: 75%;
+}
+
+.progressBar {
+    grid-column: 1/-1;
+    grid-row: 3;
+    margin-inline: 5%;
+}
+
+.completion {
+    grid-column: 3;
+    grid-row: 4;
+}

@@ -13,8 +13,10 @@
         <script src="./scripts/charts.js"></script>
         <script src="./scripts/orientation.js"></script> 
         <script src="./scripts/animButton.js"></script>
+        <script src="./scripts/ligthshow.js"></script>
         <link rel="stylesheet" type="text/css" href="./css/fractionstyles.css">
         <link rel="stylesheet" type="text/css" href="./css/faceAnim.css">
+        <link rel="stylesheet" type="text/css" href="./css/lightshow.css">
     </head>
     <body>
         <div id="loading-screen">
@@ -24,6 +26,16 @@
             <div>
                 <h1 style="font-family: TOYZ; color: white;">PROYECTO<br><a style="font-size: larger; color:rgb(210, 236, 165)">CARITA FELIZ</a></h1>
                 <button class="otherButtons" id="fullscreenButton2" style="width: 100%; background: #4e2c0bd4;">EMPEZAR</button>
+            </div>
+        </div>
+        <div class="lightShow">
+            <div class="ligthShowContainer1">
+                <div class="LSElement" id="LSCircleElement"></div>
+            </div>
+            <div class="lightShowContainer2">
+                <div>
+                    <p id="lightShowText">this is some sample text</p>
+                </div>
             </div>
         </div>         
         <div class="sidebar">
@@ -35,9 +47,15 @@
             <h5>por <a href="https://www.youtube.com/@danielcarreon">Daniel Carreon</a></h5>
             <hr>
             <p>Video de Apoyo</p>
-            <iframe width="100%" height="40%" src="https://www.youtube.com/embed/X_6EPkvIAGg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <h5>por <a href="example.com">Author</a></h5>
+            <iframe width="100%" height="40%" src="https://www.youtube.com/embed/FRPijN0ie3U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <h5>por <a href="https://www.youtube.com/@danielcarreon">Daniel Carreon</a></h5>
             <h2>Páginas Web</h2>
+            <hr style="background-color: #e7ded5;">
+            <h2><a style="font-size: larger;" href="https://www.matematicas18.com/es/tutoriales/aritmetica/fracciones/suma-de-fracciones/">Suma de Fracciones</a></h2>
+            <h5>por <a href="https://www.matematicas18.com/">Matematicas18</a></h5>
+            <hr>
+            <h2><a style="font-size: larger;"  href="https://www.superprof.es/apuntes/escolar/matematicas/aritmetica/racionales/suma-y-resta-de-fracciones.html">Suma de Fracciones</a></h2>
+            <h5>por <a href="https://www.superprof.es">Superprofes</a></h5>
         </div>
         <div class="sidebarRight">
             <h1>Graficos</h1>
@@ -174,7 +192,7 @@
                 </div>
                 <div id="helpText">
                     <h3 id="commentHeader" class="commentText">Bienvenido al Proyecto<br>Carita Sonriente!</h3>
-                    <p id="commentPa1" class="commentText">¿Perdid@? <a id="howToUse">¡Haz clíc aquí!</a></p>
+                    <p id="commentPa1" class="commentText">¿Perdid@? <a href="#" id="howToUse">¡Haz clíc aquí!</a></p>
                 </div>
                 <div id="navGrid">
                     <button class="navButton" id="navButtonB">B</button>

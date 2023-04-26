@@ -1,0 +1,27 @@
+.lightShow {
+    display: none;
+    z-index: 20;
+    position: fixed;
+}
+
+#LSCircleElement {
+    opacity: 0;
+    border: solid 750px rgb(0, 0, 0);
+    border-radius: 50%;
+    background: transparent;
+    padding: 105px;
+    position: fixed;
+    top: -134%;
+    left: -5%;
+}
+
+#lightShowText {
+    color: white;
+    font-size: 200%;
+    font-weight: 800;
+    opacity: 0;
+    z-index: 21;
+    position: fixed;
+    top: 10%;
+    left: 10%;
+}

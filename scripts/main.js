@@ -15,6 +15,30 @@ B                D                  G             RB                RD
                                     - = 0                       - = 0
 a = 0, b = 1, c = 2, d = 3, e = 4, f = 5, g = 6, c(abs) = 7, d(abs) = 8, e(abs) = 9, f(abs) = 10         
 */
+
+function printFraction(a, b, c, d, e){
+    let _11 = a;//$('#numberA').val();
+    let _12 = b;//$('#numberB').val();
+    let _21 = c;//$('#numberC').val();
+    let _22 = d;//$('#numberD').val();
+    let _op = e;//(e == 1 ? 1 : 0);
+    var fractionResults = solveFraction(_11, _12, _21, _22, _op);
+    for(let i = 0; i<fractionResults.length; i++){
+        console.log(`${fractionResults[i]}\n`)
+    };
+    $('#numberE').val(fractionResults[0]);
+    $('#numberF').val(fractionResults[1]);
+    $('#numberG').val(fractionResults[2]);
+    $('#numberRA').val(fractionResults[8]);
+    $('#numberRB').val(fractionResults[2]);
+    $('#numberRC').val(fractionResults[9]);
+    $('#numberRD').val(fractionResults[10]);
+    $('.resultOperator').text((fractionResults[6]==1)?'+ ————':'- ————');
+    $('#aFrac').text('Fraccion Nº1\t| ' + _11 + '/' + _12)
+    $('#bFrac').text('Fraccion Nº2\t| ' + _21 + '/' + _22)
+    $('#rFrac').text('Resultado\t| ' + fractionResults[4] + '/' + fractionResults[5])
+}
+
 function solveFraction(param11, param12, param21, param22, paramOp){
     let a = 0;
     let b = 0;

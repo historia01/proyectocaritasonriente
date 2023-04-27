@@ -22,10 +22,8 @@ function printFraction(a, b, c, d, e){
     let _21 = c;//$('#numberC').val();
     let _22 = d;//$('#numberD').val();
     let _op = e;//(e == 1 ? 1 : 0);
+
     var fractionResults = solveFraction(_11, _12, _21, _22, _op);
-    for(let i = 0; i<fractionResults.length; i++){
-        console.log(`${fractionResults[i]}\n`)
-    };
     $('#numberE').val(fractionResults[0]);
     $('#numberF').val(fractionResults[1]);
     $('#numberG').val(fractionResults[2]);

@@ -24,7 +24,6 @@ function requestFS(){
   };
 };
 $(document).ready(function(){
-  requestFS();
     $("#fullscreenButton").click(function(){
         requestFS();
     });

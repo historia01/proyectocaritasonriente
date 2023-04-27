@@ -224,7 +224,7 @@ input:active {
 .keyboardButton {
   font-size: larger;
   color: white;
-  border: 10%;
+  /*border: 10%;*/
   background-color: #a05d1e;
   border-color: #FFFFFF;
   border-radius: 5px;
@@ -250,7 +250,7 @@ input:active {
 .navButton {
   font-size: larger;
   color: white;
-  border: 10%;
+  /*border: 10%;*/
   background-color: #a05d1e;
   border-color: #FFFFFF;
   border-radius: 5px;

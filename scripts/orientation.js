@@ -1,10 +1,14 @@
 $(function() {
-    // Remove loading screen when page has finished loading
     window.onload = function() {
+        console.log("WEBPAGE LOADED!")
         $('#loading-screen').addClass('hide');
     }
 });
 $(document).ready(function(){
+    setTimeout(function(){
+        $('#loading-screen').addClass('hide');
+        console.log("x")
+    },6000)
     let windowVar = $(".rotationWarning");
     let destroyMe = $("#destroyMe");
     if (window.orientation == 0 || window.orientation == 180) {
@@ -12,9 +16,9 @@ $(document).ready(function(){
         windowVar.css("display", "unset");
     } else {
         console.log("Device is in landscape mode");
-//        windowVar.remove();
-//        destroyMe.remove();
-       windowVar.css("display", "unset");
+        windowVar.remove();
+        destroyMe.remove();
+//       windowVar.css("display", "unset");
     }
     $("#closePrompt").click(function(){
         windowVar.remove();

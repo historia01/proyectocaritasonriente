@@ -1,7 +1,13 @@
 let timer, b1, b2, b3, b4, th, tp, pb, rating, progress, iscom, endact = false, correctValue, endTime0;
+var acN = 0
 function prepareArea(act, desc){
     $('#loading-screen').css("opacity", "1");
+    opencloseSidebar()
     setTimeout(function(){
+        endact = false;
+        endTime0 = -1;
+        acN = 0;
+        $("#msButtons").css("display", "grid");
         $("#keyboardGrid").css("opacity", "0");
         $("#navGrid").css("opacity", "0");
         $("#controlButtons").css("opacity", "0");
@@ -13,8 +19,10 @@ function prepareArea(act, desc){
 };
 
 function restoreArea(){
+    console.log("Restore Function Called")
     $('#loading-screen').css("opacity", "1");
     setTimeout(function(){
+        opencloseSidebar()
         $("#keyboardGrid").css("opacity", "1");
         $("#navGrid").css("opacity", "1");
         $("#controlButtons").css("opacity", "1");
@@ -160,6 +168,7 @@ function endScreen(responseArray, responseArrayLenght ,endTime){
     
     setTimeout(function(){
         restoreArea();
+
     }, 7500)
 }
 
@@ -170,7 +179,6 @@ function act2(){
 function activity2start(time){
     let ques = [0, 0, 0, 0, 0];
     let qn = 0;
-    let acN = 0;
     console.log("activity started")
     act2();
     $(".actButton").click(function(){
@@ -238,7 +246,9 @@ function activity2start(time){
                 acN++; break;
             //endscreen
             case 10:
+                $("#msButtons").css("display", "none");
                 endScreen(ques, 5, endTime0);
+                acN = 0;
                 break;
         }     
     })
@@ -255,4 +265,8 @@ $(document).ready(function(){
     pb = $('#prBar');
     correctValue = 0;
     endTime0 = -1;
-})
+
+    $("#actStartButton2").click(function(){
+        activity2start(60);
+    });
+});

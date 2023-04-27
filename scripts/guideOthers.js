@@ -1,12 +1,13 @@
+function opencloseSidebar(){ 
+    if($(".sidebar").css("left")=="-300px"){
+        $(".sidebar").css("left", "0");
+    } else {
+        $(".sidebar").css("left", "-300px"); }
+    }
 $(document).ready(function() {
     //Left Sidebar recommendations
-    $("#otherMenu").click(function(){ 
-        if($(".sidebar").css("left")=="-300px"){
-            $(".sidebar").css("left", "0");
-        }
-        else {
-            $(".sidebar").css("left", "-300px");
-        }
+    $("#otherMenu").click(function(){
+        opencloseSidebar();
     });
     //Credits menu
     $("#bottomAreaTrigger").click(function() {
@@ -31,5 +32,5 @@ $(document).ready(function() {
             $("#commentHeader").text('Diferente Denominador');
             $("#commentPa1").html('En este caso se multiplica los<br>denominadores y se multiplican en forma de X<br>como <a href="#" id="triggerAni">muestra el gráfico</a>');
         }    
-    });
+    });    
 });

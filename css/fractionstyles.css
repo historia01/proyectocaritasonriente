@@ -536,8 +536,8 @@ h6 {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 52%;
-  height: 64%;
+  width: 90%;
+  height: 85%;
   background-image: url('../media/backgroundTextureLight.jpg');
   border: 6px solid #3a2612;
   border-radius: 15px;

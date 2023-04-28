@@ -1,8 +1,8 @@
-$(document).ready(function() {
-    var aChart;
-    var bChart;
-    var rChart;
+let aChart;
+let bChart;
+let rChart;
 
+$(document).ready(function() {
     $("#graphicsMenu").click(function(){ 
         if($(".sidebarRight").css("right")=="-300px"){
             $(".sidebarRight").css("right", "0");
@@ -92,9 +92,9 @@ $(document).ready(function() {
             rChart.destroy();
         }
     });
-    $("#clearButton").click(function(){
+    /* $("#clearButton").click(function(){
         aChart.destroy();
         bChart.destroy();
         rChart.destroy();
-    });
+    }); */
 });

@@ -1,12 +1,35 @@
-let timer, b1, b2, b3, b4, th, tp, pb, rating, progress, iscom, correctValue;// endact = false, correctValue, endTime0;
-//var acN = 0;
+let endTime = 0;
+let endact = false;
+let ques = [0, 0, 0, 0, 0];
+let mistakes = 0;
+let accerts = 0;
+let progress = 0;
+let questionNumber = 1;
+let verifyQuestion = false;
+let correctValue = 0;
+let activityType = 0;
+let questionLimit = -1;
+let timeLimit = -1;
+let startActivity = false;
+let operationType = 0;
+
+function configureActivty(parameters){
+    //Type of the Activity, 0 is infinite, 1 is limited
+    activityType = parameters[0];
+    //if limited questionLimit should be set to -1
+    questionLimit = parameters[1];
+    //Time
+    timeLimit = parameters[2];
+    //Operation Type
+    operationType = parameters[3];
+
+}
 
 function prepareArea(act, desc){
     $('#loading-screen').css("opacity", "1");
     opencloseSidebar()
     setTimeout(function(){
-        endact = false;
-        endTime0 = -1;
+        $(".actButton").css("display", "unset")
         $("#msButtons").css("display", "grid");
         $("#keyboardGrid").css("opacity", "0");
         $("#navGrid").css("opacity", "0");
@@ -22,13 +45,16 @@ function restoreArea(){
     console.log("Restore Function Called")
     $('#loading-screen').css("opacity", "1");
     setTimeout(function(){
+        $("#prBar").html("")
+        $("#clearButton").trigger("click");
         opencloseSidebar();
-        acN=0;
         $("#keyboardGrid").css("opacity", "1");
         $("#navGrid").css("opacity", "1");
         $("#controlButtons").css("opacity", "1");
         $('.activityLayout').css("display", "none")
         $('#loading-screen').css("opacity", "0");
+        endTime = 0; endact = false; ques = [0, 0, 0, 0, 0]; mistakes = 0; accerts = 0;
+        progress = 0; questionNumber = 1; verifyQuestion = false; correctValue = 0; activityType = 0; questionLimit = -1; startActivity = false;
     }, 2000);
 }
 
@@ -55,57 +81,39 @@ function setTime(time) {
     $("#actTimer").html(time);
   }
   
-function endTime() {
+function endTimer() {
+    endact = true;
+}
+
+function currentTime() {
     return $("#actTimer").html();
 }
   
 function startTimer(time) {
+    console.log("Timer has Started!")
     let intervalId = setInterval(function() {
         time--;
         setTime(time);
         if (time === 0 || endact) {
             clearInterval(intervalId);
-            let A = endTime();
-            console.log("Interval ended, time is " + A);
-            endTime0 = A; // log the value of A to the console
+            endTime = Number(currentTime());
+            console.log("Interval ended, time is " + endTime);
+            (activityType == 0)?endScreen(ques) : console.log(null);
         }
     }, 1000);
-    //console.log("Interval ended, time is " + time);
-}
-
-function stopTimer() {
-    endact = true;
-    return Number($("#actTimer").html());
 }
 
 function addProgress(a){
-    let val = $("#prBar").html();
     if(a == 0){
-        $("#prBar").html(val + "🟥");
+        $("#prBar").append("🟥");
     }
     else if(a == 1){
-        $("#prBar").html(val + "🟩");
-    }
-    else if(a == 2){
-        $("#prBar").html(val + "🟦");
+        $("#prBar").append("🟩");
     }
     else{
-        $("#prBar").html(val + "⬜")
+        $("#prBar").append("⬜")
     }
 }
-
-function progressBar(length, position, color){
-    $("#prBar").html("");
-    let d = true;
-    for(let i = 0; i < length; i++){
-        if(i == position && true){
-            addProgress(color);
-        } else {
-            addProgress(-1);
-            d = false;
-        }
-    }
-};
 
 function randomButtonPosition(a, b){
     //a = position (0, 1, 2, 3) ; b = true value
@@ -117,16 +125,17 @@ function randomButtonPosition(a, b){
     }   
 }
 
-function act2_1(header, paragraph, bar_lenght, bar_position) {    
-    textValues(header, paragraph);
-    progressBar(bar_lenght, bar_position, 2);
-    printFraction(math.randomInt(1, 10), math.randomInt(1, 10), math.randomInt(1, 10), math.randomInt(1, 10), 1)
+function setQuestion(header, type) {
+    //type == 0 : type is a defined number of questions
+    //type == 1 : type is an unlimited number of questions
+    (type == 0)? textValues("Pregunta " + header, "Seleccione la respuesta Correcta<br>Aciertos: "+ accerts + "<br>Errores: "+ mistakes) : textValues("Pregunta " + header, "<br>Aciertos: "+ accerts + "<br>Errores: "+ mistakes);
+    printFraction(math.randomInt(1, 10), math.randomInt(1, 10), math.randomInt(1, 10), math.randomInt(1, 10), (operationType == 0) ? 1 : 0);
     correctValue = $('#numberRA').val(); 
     $('#numberRA').val("");
     randomButtonPosition(math.randomInt(1, 5), correctValue);
 }
 
-function act2_2(val, html, bar_lenght, bar_position) {
+function checkQuestion(val, html) {
     let b;
     const buttonValue = val;
     const buttonHtml = html;  
@@ -134,214 +143,135 @@ function act2_2(val, html, bar_lenght, bar_position) {
     if(buttonHtml==correctValue){ 
         console.log("Correct, the value is " + correctValue);
         b = 1;
-        progressBar(bar_lenght, bar_position, 1)
+        (activityType == 1)? addProgress(1) : console.log("dummy") ;
         textValues("¡Correcto!😁", "Presiona Cualquier boton para continuar.");
+        accerts++
     } 
     else {
         console.log("Incorrect. Correct value is " + correctValue);
         b = 0;
-        progressBar(bar_lenght, bar_position, bar_lenght, bar_position)
-        textValues("¡Incorrecto!😔", "Presiona Cualquier boton para continuar.")   
+        (activityType == 1)? addProgress(0) : console.log("dummy") ;
+        textValues("¡Incorrecto!😔", "Presiona Cualquier boton para continuar.")
+        mistakes++  
     }
     return b;
 }
 
-function endScreen(responseArray, responseArrayLenght ,endTime){
-    let errorCount = 0;
-    for(let i = 0; i < responseArrayLenght; i++){
+function endScreen(responseArray){
+    $(".actButton").css("display", "none")
+    endTime = Number(currentTime());
+    if(activityType == 1){
+        $("#prBar").html("");
+    for(i = 1; i < (questionNumber); i++){
         if(responseArray[i] == 0){
             addProgress(0);
-            errorCount++;
         } else {
             addProgress(1);
         }
     }
-    if (Number(endTime0) != 0 && errorCount < 2) {
+    if (Number(endTime) != 0 && mistakes == 0) {
         rating = "⭐⭐⭐"
-        console.log("3 stars awarded because time was different from zero and errors were less than two")
-    } else if (errorCount < 2) {
+        console.log("3 stars awarded because time was different from zero and errors were zero")
+    } else if (Number(endTime) != 0 && mistakes < 2.1) {
         rating = "⭐⭐"
         console.log("2 stars awarded because errors were less than two")
-    } else if (Number(endTime0) != 0){
-        rating = "⭐⭐"
-        console.log("2 stars awarded because time was different from zero")
     } else {
         rating = "⭐"
         console.log("1 star awarded because no conditions were met")
     }
-    textValues("¡Actividad Terminada!", 'En ' + endTime + '<br>'+ rating);
-    $("#prBar").html("");
-    
+textValues("¡Se acabo el tiempo!", 'En '+ endTime + ' segundos.<br>' + rating)
+    } else {
+        if (questionNumber >= 30 && mistakes > (questionNumber*0.75)) {
+            rating = "⭐⭐⭐⭐⭐"
+            console.log("5 stars awarded because questions were over ")
+        } else if (questionNumber >= 30 && mistakes < (questionNumber/2)) {
+            rating = "⭐⭐⭐⭐"
+            console.log("2 stars awarded because errors were less than two")
+        } else if (questionNumber > 12 && mistakes < accerts){
+            rating = "⭐⭐⭐"
+            console.log("2 stars awarded because time was different from zero")
+        } else if (mistakes < (questionNumber/3)){
+            rating = "⭐⭐"
+            console.log("2 stars awarded because time was different from zero")
+        } else {
+            rating = "⭐"
+            console.log("1 star awarded because no conditions were met")
+        }
+        textValues("¡Se acabo el tiempo!", 'Preguntas: ' + questionNumber + '<br>Aciertos: '+ accerts + '<br>Errores: '+ mistakes + '<br>' + rating);
+        $("#prBar").html("");
+    }
     setTimeout(function(){
         restoreArea();
-
-    }, 7500)
+    }, 4000)
 }
 
 function act2(){
     prepareArea("Actividad 1", "Sumas de 2 Digitos<br>Tiempo Limite: 60s<br>Presiona un boton para Continuar");
 }
 
-/* function activity2start(time){
-    let ques = [0, 0, 0, 0, 0];
-    console.log("Activity #2 started with time "+time);
-    act2();
-    $(".actButton").click(function(){
-        const buttonValue = $(this).val();
-        const buttonHtml = $(this).html();
-        console.log("------------------------------------------------------\nHTML Value of the Button is "+buttonHtml, ", and Value is ", buttonValue); 
-        switch (acN) {
-            //1
-            case 0:
-                console.log("Iteration Number= " + acN + "case 0")
-                startTimer(time);
-                act2_1("1", "test", 5, 0);                
-                acN = 0+1; break;
-            case 1:
-                console.log("Iteration Number= " + acN + "case 1")
-                ques[0] = act2_2(buttonValue, buttonHtml, 5, 0);
-                console.log("Added as:"+ques[0]);
-                //buttonValuesClear()
-                acN = 1+1; break;
-            //2
-            case 2:
-                console.log("Iteration Number= " + acN + "case 2")
-                act2_1("2", "test", 5, 1);                
-                acN = 2+1; break;
-            case 3:
-                console.log("Iteration Number= " + acN  + "case 3")
-                ques[1] = act2_2(buttonValue, buttonHtml, 5, 1);
-                console.log("Added as:"+ques[1]);
-                //buttonValuesClear()
-                acN =3+1; break;
-            //3
-            case 4:
-                console.log("Iteration Number= " + acN  + "case 4")
-                act2_1("3", "test", 5, 2);                
-                acN =4+1; break;
-            case 5:
-                console.log("Iteration Number= " + acN  + "case 5")
-                ques[2] = act2_2(buttonValue, buttonHtml, 5, 2);
-                console.log("Added as:"+ques[2]);
-                //buttonValuesClear()
-                acN =5+1; break;
-            //4
-            case 6:
-                console.log("Iteration Number= " + acN  + "case 6")
-                act2_1("4", "test", 5, 3);                
-                acN =6+1; break;
-            case 7:
-                console.log("Iteration Number= " + acN  + "case 7")
-                ques[3] = act2_2(buttonValue, buttonHtml, 5, 3);
-                console.log("Added as:"+ques[3]);
-                //buttonValuesClear()
-                acN =7+1; break;
-            //5
-            case 8:
-                console.log("Iteration Number= " + acN  + "case 8")
-                act2_1("5", "test", 5, 4);
-                acN =8+1; break;
-            case 9:
-                console.log("Iteration Number= " + acN  + "case 9")
-                ques[4] = act2_2(buttonValue, buttonHtml, 5, 4);
-                console.log("Added as:"+ques[4]);
-                endact = true;
-                console.log("Activity Ended, timer stopped at " + endTime0)
-                //buttonValuesClear();                
-                acN =9+1; break;
-            //endscreen
-            case 10:
-                console.log("Iteration Number= " + acN  + "case 10")
-                $("#msButtons").css("display", "none");
-                endScreen(ques, 5, endTime0);
-                if (acN >= 10) {acN = 0;}
-                break;
-        }     
-    })
-} */
+function activityStart(h1, p){
+    prepareArea(h1, p);
 
-let acN = 0; // activity number
-let endTime0;
-let endact = false;
-let ques = [0, 0, 0, 0, 0];
-
-function activitySwitch(a, b){
-    buttonValue = a;
-    buttonHtml = b;
-    if (acN === 0) {
-        setTimeout(function(){
-            act2_1("1", "test", 5, 0);
-        }, 1000)
-      } else if (acN === 1) {
-        setTimeout(function(){ 
-            ques[0] = act2_2(buttonValue, buttonHtml, 5, 0);
-        }, 1000)
-      } else if (acN === 2) {
-        setTimeout(function(){
-            act2_1("2", "test", 5, 1);
-        }, 1000)
-        
-      } else if (acN === 3) {
-        setTimeout(function(){
-            ques[1] = act2_2(buttonValue, buttonHtml, 5, 1);
-        }, 1000)
-      } else if (acN === 4) {
-        act2_1("3", "test", 5, 2);
-      } else if (acN === 5) {
-        ques[2] = act2_2(buttonValue, buttonHtml, 5, 2);
-      } else if (acN === 6) {
-        act2_1("4", "test", 5, 3);
-      } else if (acN === 7) {
-        ques[3] = act2_2(buttonValue, buttonHtml, 5, 3);
-      } else if (acN === 8) {
-        act2_1("5", "test", 5, 4);
-      } else if (acN === 9) {
-        ques[4] = act2_2(buttonValue, buttonHtml, 5, 4);
-        endact = true;
-        endTime0 = stopTimer();
-        console.log("Activity Ended, timer stopped at " + endTime0);
-      } else if (acN === 10) {
-        $("#msButtons").css("display", "none");
-        endScreen(ques, 5, endTime0);
-        acN = 0;
-      }      
-}
-
-function activity2start(time) {
-  console.log("Activity #2 started with time " + time);
-  startTimer(time);
-  act2();
-  acN = 0;
-  $(".actButton").click(function() {
-    const buttonValue = $(this).val();
-    const buttonHtml = $(this).html();
-    
-    console.log("------------------------------------------------------\nHTML Value of the Button is " + buttonHtml + ", and Value is " + buttonValue);
-    
-    setTimeout(function(){
-        activitySwitch(buttonValue, buttonHtml);  
-    }, 1000)
-    console.log(acN + " " + (acN + 1))
-    acN++;
-  });
 }
 
 $(document).ready(function(){
-    timer = $("#actTimer");
-    b1 = $("#actButton1");
-    b2 = $("#actButton2");
-    b3 = $("#actButton3");
-    b4 = $("#actButton");
-    th = $("#commentHeader");
-    tp = $('#commentPa1');
-    pb = $('#prBar');
-    correctValue = 0;
-    endTime0 = -1;
-    acN = 0;
+    const fraction1 = $("#fraction1");
+    const fractionOperator = $("#fractionOperator");
+    const fraction2 = $("#fraction2");
+    $(".actButton").click(function() {
+        //response Logic
+        if(startActivity == false){
+            startTimer(timeLimit)
+            startActivity = true;
+        }
+        const buttonValue = $(this).val();
+        const buttonHtml = $(this).html();
+        if(questionNumber > questionLimit && questionLimit != -1 && verifyQuestion == false){
+            endTimer();
+            endScreen(ques);
+        } else if(verifyQuestion == false){
+            setQuestion(questionNumber, activityType);
+            verifyQuestion = true;
+        }
+        else{
+            ques[questionNumber] = checkQuestion(buttonValue, buttonHtml);
+            verifyQuestion = false;
+            buttonValuesClear();
+            questionNumber++;
+        }
+      });
 
     $("#actStartButton2").click(function(){
-        acN=0;
-        
-        activity2start(60);
+        configureActivty([1, 5, 30, 0])
+        setTime(60);
+        activityStart("Actividad 1", "Sumas de 2 digitos.");
+        fraction1.css("display", "none");
+        fractionOperator.css("display", "none");
+        fraction2.css("display", "none");
     });
+    $("#actStartButton3").click(function(){
+        configureActivty([1, 5, 30, 1])
+        setTime(60);
+        activityStart("Actividad 2", "Restas de 2 digitos.");
+        fraction1.css("display", "none");
+        fractionOperator.css("display", "none");
+        fraction2.css("display", "none");
+    })
+    $("#actStartButtonNTM1").click(function(){
+        configureActivty([0, -1, 60, 1])
+        setTime("x");
+        activityStart("Ilimitado 1", "Sumas de 2 digitos.");
+        fraction1.css("display", "none");
+        fractionOperator.css("display", "none");
+        fraction2.css("display", "none");
+    })
+    $("#actStartButtonNTM2").click(function(){
+        configureActivty([0, -1, 60, 0])
+        setTime(60);
+        activityStart("Ilimitado 2", "Restas de 2 digitos.");
+        fraction1.css("display", "none");
+        fractionOperator.css("display", "none");
+        fraction2.css("display", "none");
+    })
+    
 });

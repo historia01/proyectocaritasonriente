@@ -22,7 +22,6 @@ function printFraction(a, b, c, d, e){
     let _21 = c;//$('#numberC').val();
     let _22 = d;//$('#numberD').val();
     let _op = e;//(e == 1 ? 1 : 0);
-
     var fractionResults = solveFraction(_11, _12, _21, _22, _op);
     $('#numberE').val(fractionResults[0]);
     $('#numberF').val(fractionResults[1]);
@@ -132,6 +131,9 @@ $(document).ready(function() {
         $("#opPlus").css({
             "color" : "#7086ff"
         });
+        $("#fraction1").css("display", "unset");
+        $("#fractionOperator").css("display", "unset");
+        $("#fraction2").css("display", "unset");
         $("#opMinus").css({
             "color" : "white"
         });

@@ -57,7 +57,7 @@ function solveFraction(param11, param12, param21, param22, paramOp){
     if(paramOp == 1){
         d = Number(a) + Number(b);
         $(".opSign").text("+");
-        console.log("operation Add" + d)
+        //console.log("operation Add" + d)
     }
     else {
         d = Number(a) - Number(b);

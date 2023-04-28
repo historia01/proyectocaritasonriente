@@ -1,12 +1,12 @@
-let timer, b1, b2, b3, b4, th, tp, pb, rating, progress, iscom, endact = false, correctValue, endTime0;
-var acN = 0
+let timer, b1, b2, b3, b4, th, tp, pb, rating, progress, iscom, correctValue;// endact = false, correctValue, endTime0;
+//var acN = 0;
+
 function prepareArea(act, desc){
     $('#loading-screen').css("opacity", "1");
     opencloseSidebar()
     setTimeout(function(){
         endact = false;
         endTime0 = -1;
-        acN = 0;
         $("#msButtons").css("display", "grid");
         $("#keyboardGrid").css("opacity", "0");
         $("#navGrid").css("opacity", "0");
@@ -22,7 +22,8 @@ function restoreArea(){
     console.log("Restore Function Called")
     $('#loading-screen').css("opacity", "1");
     setTimeout(function(){
-        opencloseSidebar()
+        opencloseSidebar();
+        acN=0;
         $("#keyboardGrid").css("opacity", "1");
         $("#navGrid").css("opacity", "1");
         $("#controlButtons").css("opacity", "1");
@@ -62,16 +63,21 @@ function startTimer(time) {
     let intervalId = setInterval(function() {
         time--;
         setTime(time);
-        if (time == 0 || endact == true) {
+        if (time === 0 || endact) {
             clearInterval(intervalId);
             let A = endTime();
-            console.log(A);
+            console.log("Interval ended, time is " + A);
             endTime0 = A; // log the value of A to the console
         }
     }, 1000);
-    console.log("Interval ended, time=" + time);
+    //console.log("Interval ended, time is " + time);
 }
-  
+
+function stopTimer() {
+    endact = true;
+    return Number($("#actTimer").html());
+}
+
 function addProgress(a){
     let val = $("#prBar").html();
     if(a == 0){
@@ -126,13 +132,13 @@ function act2_2(val, html, bar_lenght, bar_position) {
     const buttonHtml = html;  
     console.log(`Button value is: ${buttonValue} and its html is ${buttonHtml}`);
     if(buttonHtml==correctValue){ 
-        console.log("correct; " + correctValue);
+        console.log("Correct, the value is " + correctValue);
         b = 1;
         progressBar(bar_lenght, bar_position, 1)
         textValues("¡Correcto!😁", "Presiona Cualquier boton para continuar.");
     } 
     else {
-        console.log("incorrect, correct is " + correctValue);
+        console.log("Incorrect. Correct value is " + correctValue);
         b = 0;
         progressBar(bar_lenght, bar_position, bar_lenght, bar_position)
         textValues("¡Incorrecto!😔", "Presiona Cualquier boton para continuar.")   
@@ -163,7 +169,7 @@ function endScreen(responseArray, responseArrayLenght ,endTime){
         rating = "⭐"
         console.log("1 star awarded because no conditions were met")
     }
-    textValues("¡Actividad Terminada!", 'En ' + endTime + '\\b'+ rating + "</big>");
+    textValues("¡Actividad Terminada!", 'En ' + endTime + '<br>'+ rating);
     $("#prBar").html("");
     
     setTimeout(function(){
@@ -176,82 +182,148 @@ function act2(){
     prepareArea("Actividad 1", "Sumas de 2 Digitos<br>Tiempo Limite: 60s<br>Presiona un boton para Continuar");
 }
 
-function activity2start(time){
+/* function activity2start(time){
     let ques = [0, 0, 0, 0, 0];
-    let qn = 0;
-    console.log("activity started")
+    console.log("Activity #2 started with time "+time);
     act2();
     $(".actButton").click(function(){
         const buttonValue = $(this).val();
         const buttonHtml = $(this).html();
-        console.log(buttonHtml, " + ", buttonValue); 
+        console.log("------------------------------------------------------\nHTML Value of the Button is "+buttonHtml, ", and Value is ", buttonValue); 
         switch (acN) {
             //1
             case 0:
-                console.log("Iteration Number= " + acN)
+                console.log("Iteration Number= " + acN + "case 0")
                 startTimer(time);
                 act2_1("1", "test", 5, 0);                
-                acN++; break;
+                acN = 0+1; break;
             case 1:
-                console.log("Iteration Number= " + acN)
+                console.log("Iteration Number= " + acN + "case 1")
                 ques[0] = act2_2(buttonValue, buttonHtml, 5, 0);
                 console.log("Added as:"+ques[0]);
-                buttonValuesClear()
-                acN++; break;
+                //buttonValuesClear()
+                acN = 1+1; break;
             //2
             case 2:
-                console.log("Iteration Number= " + acN)
+                console.log("Iteration Number= " + acN + "case 2")
                 act2_1("2", "test", 5, 1);                
-                acN++; break;
+                acN = 2+1; break;
             case 3:
-                console.log("Iteration Number= " + acN)
+                console.log("Iteration Number= " + acN  + "case 3")
                 ques[1] = act2_2(buttonValue, buttonHtml, 5, 1);
                 console.log("Added as:"+ques[1]);
-                buttonValuesClear()
-                acN++; break;
+                //buttonValuesClear()
+                acN =3+1; break;
             //3
             case 4:
-                console.log("Iteration Number= " + acN)
+                console.log("Iteration Number= " + acN  + "case 4")
                 act2_1("3", "test", 5, 2);                
-                acN++; break;
+                acN =4+1; break;
             case 5:
-                console.log("Iteration Number= " + acN)
+                console.log("Iteration Number= " + acN  + "case 5")
                 ques[2] = act2_2(buttonValue, buttonHtml, 5, 2);
                 console.log("Added as:"+ques[2]);
-                buttonValuesClear()
-                acN++; break;
+                //buttonValuesClear()
+                acN =5+1; break;
             //4
             case 6:
-                console.log("Iteration Number= " + acN)
+                console.log("Iteration Number= " + acN  + "case 6")
                 act2_1("4", "test", 5, 3);                
-                acN++; break;
+                acN =6+1; break;
             case 7:
-                console.log("Iteration Number= " + acN)
+                console.log("Iteration Number= " + acN  + "case 7")
                 ques[3] = act2_2(buttonValue, buttonHtml, 5, 3);
                 console.log("Added as:"+ques[3]);
-                buttonValuesClear()
-                acN++; break;
+                //buttonValuesClear()
+                acN =7+1; break;
             //5
             case 8:
-                console.log("Iteration Number= " + acN)
+                console.log("Iteration Number= " + acN  + "case 8")
                 act2_1("5", "test", 5, 4);
-                acN++; break;
+                acN =8+1; break;
             case 9:
-                console.log("Iteration Number= " + acN)
+                console.log("Iteration Number= " + acN  + "case 9")
                 ques[4] = act2_2(buttonValue, buttonHtml, 5, 4);
                 console.log("Added as:"+ques[4]);
                 endact = true;
                 console.log("Activity Ended, timer stopped at " + endTime0)
-                buttonValuesClear();                
-                acN++; break;
+                //buttonValuesClear();                
+                acN =9+1; break;
             //endscreen
             case 10:
+                console.log("Iteration Number= " + acN  + "case 10")
                 $("#msButtons").css("display", "none");
                 endScreen(ques, 5, endTime0);
-                acN = 0;
+                if (acN >= 10) {acN = 0;}
                 break;
         }     
     })
+} */
+
+let acN = 0; // activity number
+let endTime0;
+let endact = false;
+let ques = [0, 0, 0, 0, 0];
+
+function activitySwitch(a, b){
+    buttonValue = a;
+    buttonHtml = b;
+    if (acN === 0) {
+        setTimeout(function(){
+            act2_1("1", "test", 5, 0);
+        }, 1000)
+      } else if (acN === 1) {
+        setTimeout(function(){ 
+            ques[0] = act2_2(buttonValue, buttonHtml, 5, 0);
+        }, 1000)
+      } else if (acN === 2) {
+        setTimeout(function(){
+            act2_1("2", "test", 5, 1);
+        }, 1000)
+        
+      } else if (acN === 3) {
+        setTimeout(function(){
+            ques[1] = act2_2(buttonValue, buttonHtml, 5, 1);
+        }, 1000)
+      } else if (acN === 4) {
+        act2_1("3", "test", 5, 2);
+      } else if (acN === 5) {
+        ques[2] = act2_2(buttonValue, buttonHtml, 5, 2);
+      } else if (acN === 6) {
+        act2_1("4", "test", 5, 3);
+      } else if (acN === 7) {
+        ques[3] = act2_2(buttonValue, buttonHtml, 5, 3);
+      } else if (acN === 8) {
+        act2_1("5", "test", 5, 4);
+      } else if (acN === 9) {
+        ques[4] = act2_2(buttonValue, buttonHtml, 5, 4);
+        endact = true;
+        endTime0 = stopTimer();
+        console.log("Activity Ended, timer stopped at " + endTime0);
+      } else if (acN === 10) {
+        $("#msButtons").css("display", "none");
+        endScreen(ques, 5, endTime0);
+        acN = 0;
+      }      
+}
+
+function activity2start(time) {
+  console.log("Activity #2 started with time " + time);
+  startTimer(time);
+  act2();
+  acN = 0;
+  $(".actButton").click(function() {
+    const buttonValue = $(this).val();
+    const buttonHtml = $(this).html();
+    
+    console.log("------------------------------------------------------\nHTML Value of the Button is " + buttonHtml + ", and Value is " + buttonValue);
+    
+    setTimeout(function(){
+        activitySwitch(buttonValue, buttonHtml);  
+    }, 1000)
+    console.log(acN + " " + (acN + 1))
+    acN++;
+  });
 }
 
 $(document).ready(function(){
@@ -265,8 +337,11 @@ $(document).ready(function(){
     pb = $('#prBar');
     correctValue = 0;
     endTime0 = -1;
+    acN = 0;
 
     $("#actStartButton2").click(function(){
+        acN=0;
+        
         activity2start(60);
     });
 });

@@ -12,6 +12,7 @@ let questionLimit = -1;
 let timeLimit = -1;
 let startActivity = false;
 let operationType = 0;
+//let localStorageKey = 'default';
 
 function configureActivty(parameters){
     //Type of the Activity, 0 is infinite, 1 is limited
@@ -22,6 +23,8 @@ function configureActivty(parameters){
     timeLimit = parameters[2];
     //Operation Type
     operationType = parameters[3];
+    //key for the local storage parameter
+    //localStorageKey = parameters[4]
 
 }
 
@@ -38,6 +41,8 @@ function prepareArea(act, desc){
         $("#commentPa1").html(desc);
         $('.activityLayout').css("display", "unset")
         $('#loading-screen').css("opacity", "0");
+        $('#otherMenu').css("display", "none");
+        $('#endActivity').css("display", "unset");
     }, 2000);
 };
 
@@ -53,6 +58,8 @@ function restoreArea(){
         $("#controlButtons").css("opacity", "1");
         $('.activityLayout').css("display", "none")
         $('#loading-screen').css("opacity", "0");
+        $('#otherMenu').css("display", "unset");
+        $('#endActivity').css("display", "none");
         endTime = 0; endact = false; ques = [0, 0, 0, 0, 0]; mistakes = 0; accerts = 0;
         progress = 0; questionNumber = 1; verifyQuestion = false; correctValue = 0; activityType = 0; questionLimit = -1; startActivity = false;
     }, 2000);
@@ -140,6 +147,7 @@ function checkQuestion(val, html) {
     const buttonValue = val;
     const buttonHtml = html;  
     console.log(`Button value is: ${buttonValue} and its html is ${buttonHtml}`);
+    $('#numberRA').val(correctValue)
     if(buttonHtml==correctValue){ 
         console.log("Correct, the value is " + correctValue);
         b = 1;
@@ -205,14 +213,13 @@ textValues("¡Se acabo el tiempo!", 'En '+ endTime + ' segundos.<br>' + rating)
     }, 4000)
 }
 
-function act2(){
-    prepareArea("Actividad 1", "Sumas de 2 Digitos<br>Tiempo Limite: 60s<br>Presiona un boton para Continuar");
-}
-
 function activityStart(h1, p){
     prepareArea(h1, p);
-
 }
+
+//function saveData(){
+//    localStorage.setItem('')
+//}
 
 $(document).ready(function(){
     const fraction1 = $("#fraction1");
@@ -242,6 +249,8 @@ $(document).ready(function(){
       });
 
     $("#actStartButton2").click(function(){
+        $("#numberRA").css("border-color", "rgb(112, 134, 255)");
+        $("#numberRA").css("background-color", "rgb(58, 44, 225)");
         configureActivty([1, 5, 30, 0])
         setTime(60);
         activityStart("Actividad 1", "Sumas de 2 digitos.");
@@ -250,6 +259,8 @@ $(document).ready(function(){
         fraction2.css("display", "none");
     });
     $("#actStartButton3").click(function(){
+        $("#numberRA").css("border-color", "rgb(112, 134, 255)");
+        $("#numberRA").css("background-color", "rgb(58, 44, 225)");
         configureActivty([1, 5, 30, 1])
         setTime(60);
         activityStart("Actividad 2", "Restas de 2 digitos.");
@@ -258,6 +269,8 @@ $(document).ready(function(){
         fraction2.css("display", "none");
     })
     $("#actStartButtonNTM1").click(function(){
+        $("#numberRA").css("border-color", "rgb(112, 134, 255)");
+        $("#numberRA").css("background-color", "rgb(58, 44, 225)");
         configureActivty([0, -1, 60, 1])
         setTime("x");
         activityStart("Ilimitado 1", "Sumas de 2 digitos.");
@@ -266,6 +279,8 @@ $(document).ready(function(){
         fraction2.css("display", "none");
     })
     $("#actStartButtonNTM2").click(function(){
+        $("#numberRA").css("border-color", "rgb(112, 134, 255)");
+        $("#numberRA").css("background-color", "rgb(58, 44, 225)");
         configureActivty([0, -1, 60, 0])
         setTime(60);
         activityStart("Ilimitado 2", "Restas de 2 digitos.");
@@ -273,5 +288,7 @@ $(document).ready(function(){
         fractionOperator.css("display", "none");
         fraction2.css("display", "none");
     })
-    
+    $("#endActivity").click(function(){
+        endScreen();
+    })
 });

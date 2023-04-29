@@ -119,6 +119,8 @@ $(document).ready(function() {
         $("#numberC").css("background-color", "#7d4714");
         $("#numberD").css("border-color", "#4e2c0b");
         $("#numberD").css("background-color", "#7d4714");
+        $("#numberRA").css("border-color", "#4e2c0b");
+        $("#numberRA").css("background-color", "#7d4714");
         $("#commentHeader").html('Bienvenido al Proyecto<br>Carita Sonriente!');
         $("#commentPa1").html('¿Perdid@? <a id="howToUse">¡Haz clíc aquí!</a>');
         $('#aFrac').text('¡Intenta Resolver Algo Primero!')
@@ -137,6 +139,7 @@ $(document).ready(function() {
         $("#opMinus").css({
             "color" : "white"
         });
+
 
         setTimeout(function(){
             $('#animLine1').css({

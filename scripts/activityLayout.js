@@ -12,6 +12,8 @@ let questionLimit = -1;
 let timeLimit = -1;
 let startActivity = false;
 let operationType = 0;
+let savingString = [0, 0];
+let ranking = 0;
 //let localStorageKey = 'default';
 
 function configureActivty(parameters){
@@ -60,8 +62,11 @@ function restoreArea(){
         $('#loading-screen').css("opacity", "0");
         $('#otherMenu').css("display", "unset");
         $('#endActivity').css("display", "none");
+        setTime("0")
         endTime = 0; endact = false; ques = [0, 0, 0, 0, 0]; mistakes = 0; accerts = 0;
         progress = 0; questionNumber = 1; verifyQuestion = false; correctValue = 0; activityType = 0; questionLimit = -1; startActivity = false;
+        savingString = [0, 0]; ranking = 0;
+        updateData();
     }, 2000);
 }
 
@@ -73,10 +78,10 @@ function buttonValues(a, b, c, d){
 }
 
 function buttonValuesClear(){
-    $("#actButton1").html("x");
-    $("#actButton2").html("x");
-    $("#actButton3").html("x");
-    $("#actButton4").html("x");
+    $("#actButton1").html("");
+    $("#actButton2").html("");
+    $("#actButton3").html("");
+    $("#actButton4").html("");
 }
 
 function textValues(a, b){
@@ -165,6 +170,43 @@ function checkQuestion(val, html) {
     return b;
 }
 
+function saveData(key, type){
+    /*Results its the string that cointain all the results from the activities
+    logic is applied so the best score is the one saved
+    Normal Activities (type = 0)
+        [a, b, c, d]
+        a: 0 if the activity was dropout, this will not save the score,
+        if set to 1 it will change the status from incompleted to complete
+        b: the string will be queried and save
+        c: the string will be queried and save
+        d: should be saved as 0 or "none" since this property is not used.
+    Infinite Activities
+        [a, b, c, d] (type = 0)
+        a: saves the number of questions that were done, -1 and the data will not be saved
+        b: saves the erros
+        c: saves the accerts 
+        d: saves the ranking
+        
+    */
+    let progress = [];
+    if(type == 0){
+        progress[0] = (questionNumber > questionLimit) ? "1" : "0" ;
+        progress[1] = ranking;
+        progress[2] = ques;
+    //} else if(type == 2){
+    //    progress = test;
+    } else {
+        progress[0] = questionNumber;
+        progress[1] = mistakes;
+        progress[2] = accerts;
+        progress[3] = ranking;  
+    }
+    let jstring = JSON.stringify(progress);
+    console.log(progress + "converted into JSON string " + jstring)
+    localStorage.setItem(key, jstring)
+    console.log("Data Saved! in key " + key);
+}
+
 function endScreen(responseArray){
     $(".actButton").css("display", "none")
     endTime = Number(currentTime());
@@ -177,37 +219,46 @@ function endScreen(responseArray){
             addProgress(1);
         }
     }
-    if (Number(endTime) != 0 && mistakes == 0) {
+    if ((Number(endTime) != 0 && mistakes == 0) && (questionNumber > questionLimit)) {
         rating = "⭐⭐⭐"
+        ranking = 2;
         console.log("3 stars awarded because time was different from zero and errors were zero")
-    } else if (Number(endTime) != 0 && mistakes < 2.1) {
-        rating = "⭐⭐"
+    } else if ((Number(endTime) != 0 && mistakes < 2.1) && (questionNumber > questionLimit)) {
+        rating = "⭐⭐";
+        ranking = 1;
         console.log("2 stars awarded because errors were less than two")
     } else {
-        rating = "⭐"
+        rating = "⭐";
+        ranking = 0;
         console.log("1 star awarded because no conditions were met")
     }
-textValues("¡Se acabo el tiempo!", 'En '+ endTime + ' segundos.<br>' + rating)
+textValues("¡Actividad Terminada!", 'En '+ ((endTime != 0)?30-endTime:" más de 30") + ' segundos.<br>' + rating)
     } else {
         if (questionNumber >= 30 && mistakes > (questionNumber*0.75)) {
-            rating = "⭐⭐⭐⭐⭐"
+            rating = "⭐⭐⭐⭐⭐";
+            ranking = 4;
             console.log("5 stars awarded because questions were over ")
         } else if (questionNumber >= 30 && mistakes < (questionNumber/2)) {
             rating = "⭐⭐⭐⭐"
+            ranking = 3;
             console.log("2 stars awarded because errors were less than two")
         } else if (questionNumber > 12 && mistakes < accerts){
             rating = "⭐⭐⭐"
+            ranking = 2;
             console.log("2 stars awarded because time was different from zero")
         } else if (mistakes < (questionNumber/3)){
             rating = "⭐⭐"
+            ranking = 1;
             console.log("2 stars awarded because time was different from zero")
         } else {
             rating = "⭐"
+            ranking = 0;
             console.log("1 star awarded because no conditions were met")
         }
         textValues("¡Se acabo el tiempo!", 'Preguntas: ' + questionNumber + '<br>Aciertos: '+ accerts + '<br>Errores: '+ mistakes + '<br>' + rating);
         $("#prBar").html("");
     }
+    saveData(savingString[0], savingString[1])
     setTimeout(function(){
         restoreArea();
     }, 4000)
@@ -216,10 +267,6 @@ textValues("¡Se acabo el tiempo!", 'En '+ endTime + ' segundos.<br>' + rating)
 function activityStart(h1, p){
     prepareArea(h1, p);
 }
-
-//function saveData(){
-//    localStorage.setItem('')
-//}
 
 $(document).ready(function(){
     const fraction1 = $("#fraction1");
@@ -251,44 +298,53 @@ $(document).ready(function(){
     $("#actStartButton2").click(function(){
         $("#numberRA").css("border-color", "rgb(112, 134, 255)");
         $("#numberRA").css("background-color", "rgb(58, 44, 225)");
-        configureActivty([1, 5, 30, 0])
-        setTime(60);
-        activityStart("Actividad 1", "Sumas de 2 digitos.");
+        buttonValuesClear();
+        configureActivty([1, 5, 30, 0]);
+        setTime(30);
+        activityStart("Actividad 1", "5 Sumas de dos digitos en 30 Segundos<br>Presiona un Boton para Continuar.");
         fraction1.css("display", "none");
         fractionOperator.css("display", "none");
         fraction2.css("display", "none");
+        savingString = ["activity2Normal", 0];
+        //console.log(`Activity set with the following parameters:\n${configureActivty}. The data is gonna be saved on the key ${savingString[0]}\n Type set to ${savingString[1]}.`)
     });
     $("#actStartButton3").click(function(){
         $("#numberRA").css("border-color", "rgb(112, 134, 255)");
         $("#numberRA").css("background-color", "rgb(58, 44, 225)");
         configureActivty([1, 5, 30, 1])
-        setTime(60);
-        activityStart("Actividad 2", "Restas de 2 digitos.");
+        buttonValuesClear();
+        setTime(30);
+        activityStart("Actividad 2", "5 restas de dos digitos en 30 Segundos<br>Presiona un Boton para Continuar.");
         fraction1.css("display", "none");
         fractionOperator.css("display", "none");
         fraction2.css("display", "none");
+        savingString = ["activity3Normal", 0];
     })
     $("#actStartButtonNTM1").click(function(){
         $("#numberRA").css("border-color", "rgb(112, 134, 255)");
         $("#numberRA").css("background-color", "rgb(58, 44, 225)");
-        configureActivty([0, -1, 60, 1])
-        setTime("x");
-        activityStart("Ilimitado 1", "Sumas de 2 digitos.");
+        configureActivty([0, -1, 60, 0])
+        buttonValuesClear();
+        setTime(60);
+        activityStart("Ilimitado 1", "¿Cuantas sumas puedes hacer en 60 segundos?");
         fraction1.css("display", "none");
         fractionOperator.css("display", "none");
         fraction2.css("display", "none");
+        savingString = ["activity1Inf", 1]
     })
     $("#actStartButtonNTM2").click(function(){
         $("#numberRA").css("border-color", "rgb(112, 134, 255)");
         $("#numberRA").css("background-color", "rgb(58, 44, 225)");
-        configureActivty([0, -1, 60, 0])
+        configureActivty([0, -1, 60, 1])
+        buttonValuesClear();
         setTime(60);
-        activityStart("Ilimitado 2", "Restas de 2 digitos.");
+        activityStart("Ilimitado 2", "¿Cuantas restas? puedes hacer en 60 segundos?");
         fraction1.css("display", "none");
         fractionOperator.css("display", "none");
         fraction2.css("display", "none");
+        savingString = ["activity2Inf", 1]
     })
     $("#endActivity").click(function(){
-        endScreen();
+        endScreen(ques);
     })
 });

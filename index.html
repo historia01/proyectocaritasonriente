@@ -15,6 +15,7 @@
         <script src="./scripts/animButton.js"></script>
         <script src="./scripts/ligthshow.js"></script>
         <script src="./scripts/activityLayout.js"></script>
+        <script src="./scripts/setscores.js"></script>
         <link rel="stylesheet" type="text/css" href="./css/fractionstyles.css">
         <link rel="stylesheet" type="text/css" href="./css/faceAnim.css">
         <link rel="stylesheet" type="text/css" href="./css/lightshow.css">
@@ -77,7 +78,7 @@
                 <div class="rating" id="act2rat">✖</div>
                 <div class="progressBar" id="act2bar">⬜⬜⬜⬜⬜</div>
                 <div class="startButton" id="activity2start"><button class="actStartButton" id="actStartButton2">Empezar</button></div>
-                <h6 class="completion" id="act1iscom">Incompleta</h6>
+                <h6 class="completion" id="act2iscom">Incompleta</h6>
             </div>
             <div class="activities" id="activity3">
                 <h2 class="actTitle">Actividad 3:</h2>
@@ -134,7 +135,7 @@
                 <p id="creditsTextDev">Desarrollado Por:<br><a href="https://github.com/historia01">historia01</a></p>
                 <div class="footer">
                     <h6 id="versionNumber">
-                        ver. a1.00426
+                        ver. b1.0<br>Built on May 1st 2023
                     </h6>
                 </div>  
             </div>
@@ -147,12 +148,12 @@
                         ¡Voltea el Celular!
                     </div>
                     <button class="otherButtons" id="closePrompt" style="background-image: url('../media/backgroundTexture.jpg'); position: absolute; top: 2%; left: 90%;">❌</button>
-                    <img class="rotationGif" src="https://media4.giphy.com/media/XXU2vaPVrnhV7ZAGpY/giphy.gif?cid=6c09b952m3h6w48vbyz0sq1c60uc2bvzlt3t8oeumswro3u6&rid=giphy.gif" alt="Image">
+                    <img class="rotationGif" src="./media/rotate.gif" alt="Image">
                 </div>
             </div>
         </div>
         <div id="otherButtonsRow">
-            <button class="otherButtons" id="fullscreenButton">🖼</button>
+            <button class="otherButtons" id="fullscreenButton"><img src="./media/fullscreen.png" style="width: 28px; position: fixed; transform: translate(-50%) translateY(-50%);"></button>
             <button class="otherButtons" id="otherMenu" style="display: unset;">📖</button>
             <button class="otherButtons" id="endActivity" style="display: none;">✖</button>
         </div>
@@ -162,14 +163,17 @@
         <div id="mainContent">
             <div class="row">
                 <div id="fraction1" class="element">
+                    <img src="./media/chain.png" style="z-index: -1;position: absolute;height: 106%;/*! bottom: 460px; */top: -93%; left: 10%;">
                     <!-- <label for="numberA">a</label> -->
                     <input type="text" id="numberA" name="numberA" size="3" maxlength="3" disabled readonly>
                     <p class="fractionLine" id="fraction1Op">—————</p>
                     <!-- <label for="numberB">b</label> -->
+                    <img src="./media/chain.png" style="z-index: -1;position: absolute;height: 106%;/*! bottom: 460px; */top: -93%; right: 10%">   
                     <input type="text" id="numberB" name="numberB" size="3" maxlength="3" disabled readonly>
                 </div>
                 <br>
                 <div id="fractionOperator" class="element">
+                    <img src="./media/chain.png" style="z-index: -1;position: absolute;height: 106%;/*! bottom: 460px; */top: -93%; right: 50%; left: 50%; transform: translate(-50%);">
                     <label for="operatorAdd" id="opPlus">+</label>
                     <input type="radio" id="operatorAdd" name="operators" value="yes" disabled readonly>
                     <br>
@@ -184,15 +188,18 @@
                 
                 <br>
                 <div id="fraction2" class="element">
+                    <img src="./media/chain.png" style="z-index: -1;position: absolute;height: 106%;/*! bottom: 460px; */top: -93%; left: 10%;">
                     <!-- <label for="numberC">c</label> -->
                     <input type="text" id="numberC" name="numberC" size="3" maxlength="3" disabled readonly>
                     <p class="fractionLine" id="fraction2Op">—————</p>
                     <!-- <label for="numberD">d</label> -->
+                    <img src="./media/chain.png" style="z-index: -1;position: absolute;height: 106%;/*! bottom: 460px; */top: -93%; right: 10%">
                     <input type="text" id="numberD" name="numberD" size="3" maxlength="3" disabled readonly>
                     <p class="equalSign">=</p>
                 </div>
                 <br>
                 <div id="fraction3" class="element">
+                    <img src="./media/chain.png" style="z-index: -1;position: absolute;height: 106%;/*! bottom: 460px; */top: -93%; left: 10%;">
                     <!-- <label for="numberE">e</label> -->
                     <input type="text" id="numberE" name="numberE" size="3" maxlength="3" disabled readonly>
                     <p class="opSign">±</p>
@@ -200,24 +207,29 @@
                     <input type="text" id="numberF" name="numberF" size="3" maxlength="3" disabled readonly style="text-align: right;">
                     <p class="fractionLine">—————</p>
                     <!-- <label for="numberG">g</label> -->
+                    <img src="./media/chain.png" style="z-index: -1;position: absolute;height: 106%;/*! bottom: 460px; */top: -93%; right: 10%">
                     <input type="text" id="numberG" name="numberG" size="3" maxlength="3" disabled readonly>
                     <p class="equalSign" style="width: 18%; left: 91%;">=</p>
                 </div>
                 <br>
                 <div id="fractionResult" class="element">
+                    <img src="./media/chain.png" style="z-index: -1;position: absolute;height: 106%;/*! bottom: 460px; */top: -93%; left: 10%;">
                     <!-- <label for="numberRA">RA</label> -->
                     <input type="text" id="numberRA" name="numberRA" size="3" maxlength="3" disabled readonly>
                     <p class="resultOperator">—————</p>
                     <!-- <label for="numberRB">RB</label> -->
+                    <img src="./media/chain.png" style="z-index: -1;position: absolute;height: 106%;/*! bottom: 460px; */top: -93%; right: 10%">
                     <input type="text" id="numberRB" name="numberRB" size="3" maxlength="3" disabled readonly>
                     <p class="equalSign">=</p>
                 </div>
                 <br>
                 <div id="fractionResultSimplified" class="element">
+                    <img src="./media/chain.png" style="z-index: -1;position: absolute;height: 106%;/*! bottom: 460px; */top: -93%; left: 10%;">
                     <!-- <label for="numberRC">RC</label> -->
                     <input type="text" id="numberRC" name="numberRC" size="3" maxlength="3" disabled readonly>
                     <p class="resultOperator">—————</p>
                     <!-- <label for="numberRD">RD</label> -->
+                    <img src="./media/chain.png" style="z-index: -1;position: absolute;height: 106%;/*! bottom: 460px; */top: -93%; right: 10%">
                     <input type="text" id="numberRD" name="numberRD" size="3" maxlength="3" disabled readonly>
                 </div>
                 <br>
@@ -246,14 +258,15 @@
                     <p id="commentPa1" class="commentText">¿Perdid@? <a href="#" id="howToUse">¡Haz clíc aquí!</a></p>
                 </div>
                 <div id="navGrid">
-                    <button class="navButton" id="navButtonB">B</button>
-                    <button class="navButton" id="navButtonD">D</button>
-                    <button class="navButton" id="navButtonA">A</button>
+                    <button class="navButton" id="navButtonB"><img src="./media/fractionD.png" style="width: 20px;"></button>
+                    <button class="navButton" id="navButtonD"><img src="./media/fractionD.png" style="width: 20px;"></button>
+                    <button class="navButton" id="navButtonA"><img src="./media/fractionN.png" style="width: 20px;"></button>
                     <button class="navButton" id="navButtonMinus">-</button>
                     <button class="navButton" id="navButtonAdd">+</button>
-                    <button class="navButton" id="navButtonC">C</button>
+                    <button class="navButton" id="navButtonC"><img src="./media/fractionN.png" style="width: 20px;"></button>
                 </div>
             </div>
+            <div style="position: fixed;border: 18px solid #372317;width: 5%;height: 52%;background: #4b2a16;left: 50%;right: 50%;bottom: -15%;transform: translateX(-50%);z-index: -1;overflow: hidden;"><div></div></div>
             <button id="bottomAreaTrigger">
                 ❔
             </button>

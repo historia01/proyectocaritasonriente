@@ -3,14 +3,14 @@ $(document).ready(function() {
     var currentFocusOp = "#fraction1Op";
     //reset all colors function
     function resetColor(){
-        $("#numberA").css("border-color", "#4e2c0b");
-        $("#numberA").css("background-color", "#7d4714");
-        $("#numberB").css("border-color", "#4e2c0b");
-        $("#numberB").css("background-color", "#7d4714");
-        $("#numberC").css("border-color", "#4e2c0b");
-        $("#numberC").css("background-color", "#7d4714");
-        $("#numberD").css("border-color", "#4e2c0b");
-        $("#numberD").css("background-color", "#7d4714");
+        $("#numberA").css("border-color", "#3e210c");
+        $("#numberA").css("background-color", "#643313");
+        $("#numberB").css("border-color", "#3e210c");
+        $("#numberB").css("background-color", "#643313");
+        $("#numberC").css("border-color", "#3e210c");
+        $("#numberC").css("background-color", "#643313");
+        $("#numberD").css("border-color", "#3e210c");
+        $("#numberD").css("background-color", "#643313");
     }
     function selectOperator(){
         if($("#operatorSubs").prop("checked") == true){

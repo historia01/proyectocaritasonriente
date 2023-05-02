@@ -29,6 +29,7 @@ $(document).ready(function(){
     });
     $("#fullscreenButton2").click(function(){
       let wb2 = $(".welcomeScreen");
+      let bat = $("#bottomAreaTrigger");
       if (document.fullscreenElement !== null) {
         console.log("The document is in fullscreen mode.");
         wb2.animate({opacity: 0}, 500);
@@ -42,6 +43,7 @@ $(document).ready(function(){
           wb2.remove();
         }, 1500);
       }
+      bat.addClass("show")
     });
     $("button").click(function(){
       $("#click")[0].currentTime = 0;

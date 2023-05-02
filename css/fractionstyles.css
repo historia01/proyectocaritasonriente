@@ -72,6 +72,10 @@ h3 {
     justify-content: center;
     align-items: center;
     margin: 0%;
+    position: fixed;
+    left: 10%;
+    right: 10%;
+    height: 30%;
 }
 
 input[type=radio]{
@@ -104,7 +108,7 @@ input[type=radio]{
     background-color: lightgray;
     background-image: url("../media/backgroundTexture.jpg");
     background-size: cover;
-    border: solid 3px #4e2c0b;
+    border: solid 3px #483021;
     border-radius: 5%;
     text-align: center;
 }
@@ -114,8 +118,8 @@ input[type=radio]{
   z-index: 5;
   top: 19%;
   left: 89%;
-  background-color: #7d4714;
-  border: solid 3px #4e2c0b;
+  background-color: #713b17;
+  border: solid 3px #47250d;
   border-radius: 13px;
   height: 23%;
   width: 24%;
@@ -133,7 +137,8 @@ input[type=radio]{
   text-anchor: middle;
   width: 15%;
   border-radius: 43%;
-  background-image: url("../media/backgroundTexture.jpg");
+  /*! background-image: url("../media/backgroundTexture.jpg"); */
+  background: #713b17;
 }
 
 #sign1 {
@@ -148,10 +153,10 @@ label {
 }
 
 input {
-  background-color: #7d4714;
-  border: solid 3px #4e2c0b;
+  background-color: #643313;
+  border: solid 3px #3e210c;
   border-radius: 2px;
-  color: white;
+  color: wheat;
   font-family: PinkChicken;
   font-size: large;
 }
@@ -170,9 +175,9 @@ input:active {
   font-family: PinkChicken;
   border-radius: 3px;
   position: fixed;
-  left: 2%;
+  left: 1%;
   top: 18%;
-  width: 11%;
+  width: 10%;
 }
 
 .functionButton:hover {
@@ -191,7 +196,7 @@ input:active {
   align-items: center;
   border-radius: 20px;
   border: 8px solid;
-  border-color: #4e2c0b;
+  border-color: #4d2e1b;
   background-color: #7d4714;
   background-image: url("../media/backgroundTextureDark.jpg");
   color:white;
@@ -202,6 +207,7 @@ input:active {
   left: 2%;
   top: 41%;
   right: 0%;
+  background-size: contain;
 }
 
 #keyboardGrid {
@@ -213,19 +219,23 @@ input:active {
   row-gap: 2%;
   column-gap: 10px;
   margin: 7%;
-  /*! position: fixed; */
-  /*! bottom: -1%; */
+  position: fixed;
+  bottom: -4%;
   /*! right: 70%; */
-  /*! width: 19%; */
+  width: 19%;
   /*! height: 42%; */
   /*! font-size: 92%; */
+  left: -3%;
+  /*! transform: translateY(-10%); */
+  top: 31%;
+  font-size: initial;
 }
 
 .keyboardButton {
   font-size: larger;
   color: white;
-  /*border: 10%;*/
-  background-color: #a05d1e;
+  border: 3px solid #B5896C;
+  background-color: #7f4927;
   border-color: #FFFFFF;
   border-radius: 5px;
   /*padding-inline: 120%;
@@ -250,9 +260,9 @@ input:active {
 .navButton {
   font-size: larger;
   color: white;
-  /*border: 10%;*/
-  background-color: #a05d1e;
-  border-color: #FFFFFF;
+  border: 3px solid #FFF;
+  background-color: #4b2a16;
+  /*! border-color: #FFFFFF; */
   border-radius: 5px;
   font-family: PinkChicken;
   /*padding-inline: 20px;*/
@@ -289,6 +299,11 @@ input:active {
 #helpText {
   grid-column: 2;
   text-align: center;  
+  border: 7px solid #372317;
+  margin-inline: 8%;
+  /*! z-index: 23; */
+  border-radius: 15px;
+  background: #4b2a16;
 }
 
 #commentPa1 {
@@ -357,7 +372,7 @@ a {
 
 #bottomAreaTrigger {
   position: fixed;
-  bottom: 10px;
+  bottom: -50px;
   left: 50%;
   transform: translateX(-50%);
   /*transform: scale(75%);*/
@@ -376,14 +391,37 @@ a {
   opacity: 100%;
 }
 
+#bottomAreaTrigger.show {
+  bottom: 10px;
+  animation: batShow 1s ease 3;
+}
+
+@keyframes batShow {
+  0% {
+    bottom: 10px;
+  }
+  30%{
+    bottom: 30px;
+  }
+  60% {
+    bottom: 10px;
+  }
+  80% {
+    bottom: 20px;
+  }
+  100% {
+    bottom: 10px;
+  }
+}
+
 .lowMenu {
   display: none;
   position: fixed;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 70%;
-  height: 80%;
+  width: 75%;
+  height: 77%;
   background-image: url('../media/backgroundTextureLight.jpg');
   border: 6px solid #694521;
   border-radius: 15px;
@@ -407,7 +445,7 @@ a {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   z-index: 9;
   padding: 1%;
-  transition: top 0.5s ease-in-out;
+  transition: top 0.5s ease-in-out 1;
 }
 
 .warningText {
@@ -437,18 +475,19 @@ a {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('../media/backup/background.jpg');
+  background-image: url('../media/backgroundLoading.jpg');
   z-index: 9999;
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 1;
+  opacity: 1; 
   transition: opacity 0.5s ease-out;
   background-size: cover;
 }
 
 #loading-screen.hide {
   opacity: 0;
+  filter: blur(2px);
   pointer-events: none;
 }
 
@@ -500,8 +539,8 @@ h6 {
 
 #versionNumber {
   position: fixed;
-  top: 86%;
-  left: 87%;
+  top: 84%;
+  left: 81%;
 }
 
 .otherButtonsImage{
@@ -539,7 +578,7 @@ h6 {
   width: 90%;
   height: 85%;
   background-image: url('../media/backgroundTextureLight.jpg');
-  border: 6px solid #3a2612;
+  border: 6px solid #844c2f;
   border-radius: 15px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   z-index: 9;
@@ -554,10 +593,11 @@ h6 {
   font-family: PinkChicken;
   font-weight: 800;
   font-size: 20px;
-  background-image: url("../media/backgroundTexture.jpg");
+  /*! background-image: url("../media/backgroundTexture.jpg"); */
   background-size: cover;
-  border: solid 5px #4e2c0b;
+  border: solid 5px #4d2e1b;
   border-radius: 3px;
+  background: #7F4927;
 }
 
 #clearButton {
@@ -569,5 +609,5 @@ h6 {
 #compareButton {
   position: fixed;
   top: 28.8%;
-  left: 2%;
+  left: 1%;
 }

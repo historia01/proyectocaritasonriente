@@ -3,7 +3,7 @@
   grid-template-columns: 3fr 3fr 2fr;
   grid-auto-rows: auto;
   row-gap: 0;
-  background-color: #7d4714;
+  background-color: #7f4927;
   border: 3px dashed white;
   border-radius: 5%;
     margin-block: 4%;
@@ -45,10 +45,10 @@
 .rating {
     grid-column: 3;
     grid-row: 3;
-    text-align: right;
+    text-align: center;
     margin-inline: 5%;
     border: 2px solid gold;
-    background: gold;
+    background: #1a1a1a;
     opacity: 100%;
     border-radius: 5px;
     font-size: 75%;
@@ -76,22 +76,28 @@
 #actTimerContainer {
     display: flex;
     position: fixed;
-    top: 32%;
+    top: 31%;
     right: 4%;
     font-size: 150%;
-    border: 3px solid green;
-    background: aliceblue;
-    border-radius: 4%;
+    border: 3px solid #50280a;
+    background: #713b17;
+    border-radius: 9px;
+    padding-inline: 2%;
+    /*! margin-block: -0.6%; */
+    /*! bottom: 60%; */
+    color: wheat;
 }
 
 #prBar {
     position: fixed;
-    top: 33%;
+    top: 31.8%;
     left: 4%;
-    border: 2px black solid;
-    background: #FFF;
+    border: 3px #50280a solid;
+    background: #713B17;
     border-radius: 2%;
     padding: 0.4%;
+    border-radius: 12px;
+    /*! bottom: 60%; */
 }
 
 #msButtons {
@@ -131,10 +137,10 @@
     font-family: PinkChicken;
     font-weight: 800;
     font-size: 20px;
-    background-image: url("../media/backgroundTextureLight.jpg");
+    background: #4d2e1b;
     background-size: cover;
-    border: solid 5px #4e2c0b;
-    border-radius: 3px;
+    border: dashed 3px #fff;
+    border-radius: 22px;
 }
 
 .startButton {
@@ -164,7 +170,7 @@
     align-self: center;
     padding-block: 4%;
     border: 2px solid gold;
-    background: gold;
+    background: #1a1a1a;
     opacity: 100%;
     border-radius: 5px;
     grid-row: 3;

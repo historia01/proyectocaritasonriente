@@ -122,7 +122,7 @@ $(document).ready(function() {
         $("#numberRA").css("border-color", "#3e210c");
         $("#numberRA").css("background-color", "#643313");
         $("#commentHeader").html('Bienvenido al Proyecto<br>Carita Sonriente!');
-        $("#commentPa1").html('¿Perdid@? <a id="howToUse">¡Haz clíc aquí!</a>');
+        $("#commentPa1").html('¿Perdid@? <a href="#" id="howToUse">¡Haz clíc aquí!</a>');
         $('#aFrac').text('¡Intenta Resolver Algo Primero!')
         $('#bFrac').text('')
         $('#rFrac').text('')

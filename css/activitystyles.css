@@ -143,6 +143,22 @@
     border-radius: 22px;
 }
 
+.actButton.highlight {
+    animation: highlightAnimation 1s linear 5;
+}
+
+@keyframes highlightAnimation {
+    0% {
+        background: #4d2e1b;
+    }
+    50% {
+        background: #b48263;
+    }
+    100% {
+        background: #4d2e1b;
+    }
+}
+
 .startButton {
     padding: 15%;
     display: flex;

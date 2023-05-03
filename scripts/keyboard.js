@@ -113,6 +113,11 @@ $(document).ready(function() {
         let value1 = $(currentFocus).val();
         $(currentFocus).val(value1 + "9");
     });
+    $("#keyboardButton0").click(function() {
+        console.log("0 button Pressed")
+        let value1 = $(currentFocus).val();
+        $(currentFocus).val(value1 + "0");
+    });
     $("#keyboardButtonDel").click(function() {
         console.log("Del pressed");
         let value1 = $(currentFocus).val();

@@ -1,27 +1,61 @@
-.lightShow {
-    display: none;
-    z-index: 20;
+#tutorialImage {
     position: fixed;
+    max-width: 35%;
+    min-width: 10%;
+    left: 20%;
+    right: 80%;
+    transform: translate(-50%);
+    top: 3%;
+    margin: 2%;
+    border: 10px #694521 solid;
+    border-radius: 15px;
+    max-height: 68%;
 }
 
-#LSCircleElement {
-    opacity: 0;
-    border: solid 750px rgb(0, 0, 0);
-    border-radius: 50%;
-    background: transparent;
-    padding: 105px;
+#tutorialTitle {
     position: fixed;
-    top: -134%;
-    left: -5%;
+    left: 42%;
+    right: 2%;
+    top: 0%;
+    bottom: 100%;
 }
 
-#lightShowText {
-    color: white;
-    font-size: 200%;
-    font-weight: 800;
-    opacity: 0;
-    z-index: 21;
+#tutorialText {
     position: fixed;
-    top: 10%;
-    left: 10%;
+    top: 24%;
+    left: 42%;
+    right: 3%;
+    font-size: large;
+}
+
+.tutorialButtonNav{
+    position: fixed;
+    bottom: 2%;
+    top: 85%;
+    width: 10%;
+}
+
+#tutorialBack {
+    left: 1%;
+}
+
+#tutorialNext {
+    right: 1%;
+}
+
+#tutorialClose {
+    position: fixed;
+    right: 1%;
+    top: 2%;
+    bottom: 84%;
+    width: 7%;
+    font-size: 150%
+}
+
+.tutorialButton {
+    border: 7px #694521 solid;
+    /*! border-top-style: 10px; */
+    border-radius: 25px;
+    background: #694521;
+    color: wheat;
 }

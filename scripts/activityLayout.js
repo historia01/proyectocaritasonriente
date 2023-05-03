@@ -78,10 +78,10 @@ function buttonValues(a, b, c, d){
 }
 
 function buttonValuesClear(){
-    $("#actButton1").html("");
-    $("#actButton2").html("");
-    $("#actButton3").html("");
-    $("#actButton4").html("");
+    $("#actButton1").html("A");
+    $("#actButton2").html("B");
+    $("#actButton3").html("C");
+    $("#actButton4").html("D");
 }
 
 function textValues(a, b){
@@ -345,6 +345,9 @@ $(document).ready(function(){
         savingString = ["activity2Inf", 1]
     })
     $("#endActivity").click(function(){
+        if(activityType == 0){
+            endTimer();
+        }
         endScreen(ques);
     })
 });

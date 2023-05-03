@@ -25,12 +25,12 @@ $(document).ready(function() {
         console.log("loaded Function");
         if($("#numberB").val() == $("#numberD").val()){
             $("#commentHeader").text('Mismo Denominador');
-            $("#commentPa1").html('En estos casos se mantiene el<br>mismo numero del denominador y<br>se suma o resta sus denominadores');
+            $("#commentPa1").html('En estos casos se mantiene el<br>mismo numero del denominador y<br>se suma o resta sus numeradores');
             console.log("change OK");
         }
         else {
             $("#commentHeader").text('Diferente Denominador');
-            $("#commentPa1").html('En este caso se multiplica los<br>denominadores y se multiplican en forma de X<br>como <a href="#" id="triggerAni">muestra el gráfico</a>');
+            $("#commentPa1").html('Se multiplica en forma de X como <br><a href="#" id="triggerAni">muestra el gráfico</a> y se escribe las<br>respuestas en el numerador para sumar o restar');
         }    
     });    
 });

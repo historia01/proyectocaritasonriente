@@ -108,7 +108,7 @@ input[type=radio]{
     background-color: lightgray;
     background-image: url("../media/backgroundTexture.jpg");
     background-size: cover;
-    border: solid 3px #483021;
+    border: solid 3px #3c210d;
     border-radius: 5%;
     text-align: center;
 }
@@ -153,8 +153,8 @@ label {
 }
 
 input {
-  background-color: #643313;
-  border: solid 3px #3e210c;
+  background-color: #4d2d14;
+  border: solid 3px #3b200b;
   border-radius: 2px;
   color: wheat;
   font-family: PinkChicken;
@@ -168,10 +168,10 @@ input:active {
 .functionButton {
   padding: 0.5%;
   margin: 0.5%;
-  background-color: #0e401e;
+  background-color: #3b298f;
   color: white;
   font-size: 96%;
-  border: 4px solid #093316;
+  border: 4px solid #271b51;
   font-family: PinkChicken;
   border-radius: 3px;
   position: fixed;
@@ -181,7 +181,7 @@ input:active {
 }
 
 .functionButton:hover {
-  background-color: #167536;
+  background-color: #3b298f;
   transition: background-color 0.2s ease-in-out;
 }
 
@@ -196,7 +196,7 @@ input:active {
   align-items: center;
   border-radius: 20px;
   border: 8px solid;
-  border-color: #4d2e1b;
+  border-color: #26160d;
   background-color: #7d4714;
   background-image: url("../media/backgroundTextureDark.jpg");
   color:white;
@@ -234,9 +234,9 @@ input:active {
 .keyboardButton {
   font-size: larger;
   color: white;
-  border: 3px solid #B5896C;
-  background-color: #7f4927;
-  border-color: #FFFFFF;
+  border: 5px solid #2f1a10;
+  background-color: #3a1f12;
+  /*! border-color: #FFFFFF; */
   border-radius: 5px;
   /*padding-inline: 120%;
   margin: 10%;*/
@@ -260,8 +260,8 @@ input:active {
 .navButton {
   font-size: larger;
   color: white;
-  border: 3px solid #FFF;
-  background-color: #4b2a16;
+  border: 3px solid #2F1A10;
+  background-color: #3a1f12;
   /*! border-color: #FFFFFF; */
   border-radius: 5px;
   font-family: PinkChicken;
@@ -299,11 +299,11 @@ input:active {
 #helpText {
   grid-column: 2;
   text-align: center;  
-  border: 7px solid #372317;
+  border: 7px solid #2f1a10;
   margin-inline: 8%;
   /*! z-index: 23; */
   border-radius: 15px;
-  background: #4b2a16;
+  background: #3a1f12;
 }
 
 #commentPa1 {
@@ -378,9 +378,9 @@ a {
   /*transform: scale(75%);*/
   padding: 10px 20px;
   opacity: 50%;
-  background-color: #4e2c0b;
+  background-color: #281d51;
   color: white;
-  border: solid 3px #a05d1e;
+  border: solid 3px #150329;
   border-radius: 5px;
   cursor: pointer;
   z-index: 10;
@@ -423,7 +423,7 @@ a {
   width: 75%;
   height: 77%;
   background-image: url('../media/backgroundTextureLight.jpg');
-  border: 6px solid #694521;
+  border: 6px solid #1c130a;
   border-radius: 15px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   z-index: 9;
@@ -578,7 +578,7 @@ h6 {
   width: 90%;
   height: 85%;
   background-image: url('../media/backgroundTextureLight.jpg');
-  border: 6px solid #844c2f;
+  border: 6px solid #2b1a11;
   border-radius: 15px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   z-index: 9;
@@ -595,9 +595,9 @@ h6 {
   font-size: 20px;
   /*! background-image: url("../media/backgroundTexture.jpg"); */
   background-size: cover;
-  border: solid 5px #4d2e1b;
+  border: solid 5px #22150e;
   border-radius: 3px;
-  background: #7F4927;
+  background: #5f39cc;
 }
 
 #clearButton {

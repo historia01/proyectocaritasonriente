@@ -3,7 +3,7 @@
   grid-template-columns: 3fr 3fr 2fr;
   grid-auto-rows: auto;
   row-gap: 0;
-  background-color: #7f4927;
+  background-color: #3c210f;
   border: 3px dashed white;
   border-radius: 5%;
     margin-block: 4%;
@@ -35,9 +35,9 @@
 .actDesc {
     grid-column: 1/ -1;
     grid-row: 2;
-    border: 3px #4e2c0b solid;
+    border: 3px #2d190c solid;
     margin-inline: 7%;
-    background: #4e2c0b;
+    background: #2d190c;
     border-radius: 10px; 
     
 }

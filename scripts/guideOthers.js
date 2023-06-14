@@ -11,15 +11,18 @@ $(document).ready(function() {
     });
     //Credits menu
     $("#bottomAreaTrigger").click(function() {
-        if($(".lowMenu").css("display")=="none"){
-            $(".lowMenu").css({
+        if($(".tutorialMenu").css("display")=="none"){
+            $(".tutorialMenu").css({
                 "display": "unset"
             });
         }
         else {
-            $(".lowMenu").css("display", "none");
+            $(".tutorialMenu").css("display", "none");
         }
-      });      
+      });
+    $("#bottomAreaClose").click(function(){
+        $(".lowMenu").css("display", "none");
+    });    
     //Modify text
     $("#compareButton").click(function() {
         console.log("loaded Function");

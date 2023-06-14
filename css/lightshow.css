@@ -7,7 +7,7 @@
     transform: translate(-50%);
     top: 3%;
     margin: 2%;
-    border: 10px #694521 solid;
+    border: 10px #1c130a solid;
     border-radius: 15px;
     max-height: 68%;
 }
@@ -53,9 +53,9 @@
 }
 
 .tutorialButton {
-    border: 7px #694521 solid;
+    border: 7px #1c130a solid;
     /*! border-top-style: 10px; */
     border-radius: 25px;
-    background: #694521;
+    background: #281b0e;
     color: wheat;
 }

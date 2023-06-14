@@ -103,7 +103,7 @@ $(document).ready(function(){
         selectorAdd()
         imageSelection(imageSelector)
     });
-    $("#howToUse").click(function(event){
+    $("#bottomAreaTrigger").click(function(event){
         event.preventDefault();
         tutorialWindowShow();
         imageSelection(imageSelector)

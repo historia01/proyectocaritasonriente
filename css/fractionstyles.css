@@ -415,7 +415,24 @@ a {
 }
 
 .lowMenu {
-  display: none;
+  display: unset;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  height: 77%;
+  background-image: url('../media/backgroundTextureLight.jpg');
+  border: 6px solid #1c130a;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  z-index: 9;
+  padding: 1%;
+  transition: top 0.5s ease-in-out;
+}
+
+.tutorialMenu {
+  display: unset;
   position: fixed;
   left: 50%;
   top: 50%;
@@ -581,7 +598,7 @@ h6 {
   border: 6px solid #2b1a11;
   border-radius: 15px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  z-index: 9;
+  z-index: 10;
   padding: 1%;
   transition: top 0.5s ease-in-out;
 }
@@ -595,7 +612,7 @@ h6 {
   font-size: 20px;
   /*! background-image: url("../media/backgroundTexture.jpg"); */
   background-size: cover;
-  border: solid 5px #22150e;
+  border: solid 5px #271b51;
   border-radius: 3px;
   background: #5f39cc;
 }

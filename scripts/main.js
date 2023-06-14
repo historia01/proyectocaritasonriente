@@ -111,18 +111,18 @@ $(document).ready(function() {
         $('#numberRC').val('');
         $('#numberRD').val('');
         $(".opSign").text('±');
-        $("#numberA").css("border-color", "#3e210c");
-        $("#numberA").css("background-color", "#643313");
-        $("#numberB").css("border-color", "#3e210c");
-        $("#numberB").css("background-color", "#643313");
-        $("#numberC").css("border-color", "#3e210c");
-        $("#numberC").css("background-color", "#643313");
-        $("#numberD").css("border-color", "#3e210c");
-        $("#numberD").css("background-color", "#643313");
-        $("#numberRA").css("border-color", "#3e210c");
-        $("#numberRA").css("background-color", "#643313");
-        $("#commentHeader").html('Bienvenido al Proyecto<br>Carita Sonriente!');
-        $("#commentPa1").html('¿Perdid@? <a id="howToUse" href="#">¡Haz clíc aquí!</a>');
+        $("#numberA").css("border-color", "#3b200b");
+        $("#numberA").css("background-color", "#4d2d14");
+        $("#numberB").css("border-color", "#3b200b");
+        $("#numberB").css("background-color", "#4d2d14");
+        $("#numberC").css("border-color", "#3b200b");
+        $("#numberC").css("background-color", "#4d2d14");
+        $("#numberD").css("border-color", "#3b200b");
+        $("#numberD").css("background-color", "#4d2d14");
+        $("#numberRA").css("border-color", "#3b200b");
+        $("#numberRA").css("background-color", "#4d2d14");
+        $("#commentHeader").html('Bienvenido a<br>Camilito te Educa!');
+        $("#commentPa1").html('');
         $('#aFrac').text('¡Intenta Resolver Algo Primero!')
         $('#bFrac').text('')
         $('#rFrac').text('')

@@ -1,289 +1,84 @@
 <!DOCTYPE html>
-<html lang="es">
-    <head>
-        <title>¡Camilito te Educa!</title>
-        <link rel="icon" type="image/x-icon" href="./media/favicon.ico">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-        <script id="math" src="https://cdn.jsdelivr.net/npm/mathjs@11.7.0/lib/browser/math.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-        <script src="./scripts/keyboard.js"></script>
-        <script src="./scripts/main.js"></script> 
-        <script src="./scripts/others.js"></script>
-        <script src="./scripts/guideOthers.js"></script>
-        <script src="./scripts/charts.js"></script>
-        <script src="./scripts/orientation.js"></script> 
-        <script src="./scripts/animButton.js"></script>
-        <script src="./scripts/ligthshow.js"></script>
-        <script src="./scripts/activityLayout.js"></script>
-        <script src="./scripts/setscores.js"></script>
-        <link rel="stylesheet" type="text/css" href="./css/fractionstyles.css">
-        <link rel="stylesheet" type="text/css" href="./css/faceAnim.css">
-        <link rel="stylesheet" type="text/css" href="./css/lightshow.css">
-        <link rel="stylesheet" type="text/css" href="./css/activitystyles.css">
-    </head>
-    <body>
-        <div id="loading-screen">
-            <div class="spinner"></div>
-        </div>
-        <div style="background-image: url('./media/backup/background.jpg');display: unset;">
-            <div class="welcomeScreen">
-                <div>
-                    <h1 style="font-family: TOYZ; color: white;">CAMILITO<br><a style="font-size: larger; color:rgb(210, 236, 165)">TE EDUCA</a></h1>
-                    <button class="otherButtons" id="fullscreenButton2" style="width: 100%;">EMPEZAR</button>
-                </div>
-            </div>
-        </div>
-        <div class="tutorialMenu" style="display: none">
-            <div class="tutorialWindow">
-                <button class="tutorialButton" id="tutorialClose">x</button>
-                <img src="https://via.placeholder.com/600x400?text=1" id="tutorialImage">
-                <h1 id="tutorialTitle">Some Amazing Title</h1>
-                <p id="tutorialText">Some description about lorem ipsum</p>
-                <button class="tutorialButton tutorialButtonNav" id="tutorialBack">◀</button>
-                <button class="tutorialButton tutorialButtonNav" id="tutorialNext">▶</button> 
-            </div>
-        </div>
-        <div class="activityLayout">
-            <div class="activityObjects">
-                <!-- <div class="lightShow">
-                    <div class="ligthShowContainer1">
-                        <div class="LSElement" id="LSCircleElement"></div>
-                    </div>
-                    <div class="lightShowContainer2">
-                        <div>
-                            <p id="lightShowText">this is some sample text</p>
-                        </div>
-                    </div>
-                </div> -->
-                <div class="activityObject" id="actTimerContainer">
-                    <div>⏱=</div><div id="actTimer">60</div><div>s</div>
-                </div>
-                <div class="activityObject" id="msButtons">
-                    <button class="actButton" value="a" id="actButton1">A</button>
-                    <button class="actButton" value= "b" id="actButton2">B</button>
-                    <button class="actButton" value= "c" id="actButton3">C</button>
-                    <button class="actButton" value= "d" id="actButton4">D</button>
-                </div>
-                <div class="activityObject" id="prBar">
-                    
-                </div>
-            </div>
-        </div>         
-        <div class="sidebar">
-            <h1>Actividades</h1>
-            <hr style="background-color: #e7ded5;">
-            <div class="activities" id="activity1">
-                <h2 class="actTitle">Actividad 1:</h2>
-                <h3 class="actSTitle">Introducción</h3>
-                <p class="actDesc">Introducción a las básicas de la aplicación.</p>
-                <div class="startButton" id="activity1start"><button class="actStartButton" id="actStartButton1">Empezar</button></div>
-                <h6 class="completion" id="act1iscom" style="grid-row: 3;">Incompleta</h6>
-            </div>
-            <div class="activities" id="activity2">
-                <h2 class="actTitle">Actividad 2:</h2>
-                <h3 class="actSTitle">Sumas</h3>
-                <p class="actDesc">5 Sumas de 2 digitos<br>Tiempo Limite: 60s<br>Tipo: Seleccion Multiple</p>
-                <div class="rating" id="act2rat">✖</div>
-                <div class="progressBar" id="act2bar">⬜⬜⬜⬜⬜</div>
-                <div class="startButton" id="activity2start"><button class="actStartButton" id="actStartButton2">Empezar</button></div>
-                <h6 class="completion" id="act2iscom">Incompleta</h6>
-            </div>
-            <div class="activities" id="activity3">
-                <h2 class="actTitle">Actividad 3:</h2>
-                <h3 class="actSTitle">Restas</h3>
-                <p class="actDesc">5 Restas de 2 digitos<br>Tiempo Limite: 60s<br>Tipo: Seleccion Multiple</p>
-                <div class="rating" id="act3rat">✖</div>
-                <div class="progressBar" id="act3bar">⬜⬜⬜⬜⬜</div>
-                <div class="startButton" id="activity3start"><button class="actStartButton" id="actStartButton3">Empezar</button></div>
-                <h6 class="completion" id="act3iscom">Incompleta</h6>
-            </div>
-            <h1>Modo Infinito</h1>
-            <hr style="background-color: #e7ded5;">
-            <div class="activities" id="activityNTM1">
-                <h2 class="actTitle">Infinito 1</h2>
-                <h3 class="actSTitle">Sumas</h3>
-                <p class="actDesc">Suma de 2 Digitos<br>Suma lo mas que puedas en 60 segundos<br>Tipo: Seleccion Multiple</p>
-                <div class="ratingNTM" id="actNTM1rat">✖</div>
-                <div class="startButtonNTM" id="activityNTM1start"><button class="actStartButton" id="actStartButtonNTM1">Empezar</button></div>
-                <h6 class="recordNTM" id="actNTM1iscom">Record:✔️ 0 | ✖ 0 | ⬜ 0</h6>
-            </div>
-            <div class="activities" id="activityNTM2">
-                <h2 class="actTitle">Infinito 2:</h2>
-                <h3 class="actSTitle">Restas</h3>
-                <p class="actDesc">Restas de 2 digitos<br>Resta lo mas posible en 60s<br>Tipo: Seleccion Multiple</p>
-                <div class="ratingNTM" id="actNTM2rat">✖</div>
-                <div class="startButtonNTM" id="activityNTM2start"><button class="actStartButton" id="actStartButtonNTM2">Empezar</button></div>
-                <h6 class="recordNTM" id="actNTM2iscom">Record:✔️ 0 | ✖ 0 | ⬜ 0</h6>
-            </div>
-        </div>
-        <div class="sidebarRight">
-            <h1>Graficos</h1>
-            <hr style="background-color: #e7ded5;">
-            <h3 id="aFrac">Fraccion Nº1</h3>
-            <canvas id="fractionChartA"></canvas>
-            <hr>
-            <h3 id="bFrac">Fraccion Nº2</h3>
-            <canvas id="fractionChartB"></canvas>
-            <h3 id="rFrac">Resultado</h3>
-            <canvas id="fractionChartR"></canvas>
-        </div>
-        <div class="lowMenu">
-            <div class="creditsWindow">
-                <button class="otherButtons" id="bottomAreaClose" style="position: fixed; top: 3%; right: 92%;">✖</button>
-                <div class="creditsText" style="max-width: 75%;">
-                    <h1 style="font-family: TOYZ; color: white;">⭐ CAMILITO ⭐<br><a style="font-size: larger; color:rgb(210, 236, 165)">TE EDUCA</a></h1>
-                    <p>¡Una calculadora de fracciones de navegador simple<br>y con una interfaz simple y amigable!, desarrollada en HTML, CSS,<br>JavaScript y JQuery. Para mas información<br>ver el <a href="https://github.com/historia01/proyectocaritasonriente/">Repositorio en GitHub</a><br>Este proyecto fue posible gracias al<br>apoyo del <a>Área de Matemáticas e Informática</a></p>
-                    <hr style="background-color: azure; border-radius: 5px;">
-                    <p>¿Encontraste un error? <a href="https://github.com/historia01/proyectocaritasonriente/issues/new">¡Haz click Aquí</a> para reportarlo!</p> 
-                </div>
-                <img src="./media/logoMathArea.png" id="logoArea" class="logos">
-                <img src="./media/logoSchool.png" id="logoSchool"class="logos">
-                <a href="https://github.com/historia01/proyectocaritasonriente">
-                    <img src="./media/githublogo.png" id="githubIcon"class="otherButtonsImage">
-                </a>
-                <p id="creditsTextDev">Desarrollado Por:<br><a href="https://github.com/historia01">historia01</a></p>
-                <div class="footer">
-                    <h6 id="versionNumber">
-                        ver. 1.1<br>Built on June 14th 2023
-                    </h6>
-                </div>  
-            </div>
-        </div>
-        <div id="destroyMe" style="background-image: url('./media/backup/background.jpg'); background-size: cover; z-index: 50; position: fixed; top: 0; left: 0; bottom: 0; right: 0;">
-            <div class="rotationWarning" style="z-index: 51;">
-                <div class="warningText">
-                    <div class="rotationText">
-                        Para una mejor experiencia<br>
-                        ¡Voltea el Celular!
-                    </div>
-                    <button class="otherButtons" id="closePrompt" style="background-image: url('../media/backgroundTexture.jpg'); position: absolute; top: 2%; left: 90%;">❌</button>
-                    <img class="rotationGif" src="./media/rotate.gif" alt="Image">
-                </div>
-            </div>
-        </div>
-        <div id="otherButtonsRow">
-            <button class="otherButtons" id="fullscreenButton"><img src="./media/fullscreen.png" style="width: 28px; position: fixed; transform: translate(-50%) translateY(-50%);"></button>
-            <button class="otherButtons" id="otherMenu" style="display: unset;">📖</button>
-            <button class="otherButtons" id="endActivity" style="display: none;">✖</button>
-        </div>
-        <div id="otherButtonsRowRight">
-            <button class="otherButtons" id="graphicsMenu">📈</button>
-        </div>
-        <div id="mainContent">
-            <div class="row">
-                <div id="fraction1" class="element">
-                    <img src="./media/chain.png" style="z-index: -1;position: absolute;height: 106%;/*! bottom: 460px; */top: -93%; left: 10%;">
-                    <!-- <label for="numberA">a</label> -->
-                    <input type="text" id="numberA" name="numberA" size="3" maxlength="3" disabled readonly>
-                    <p class="fractionLine" id="fraction1Op">—————</p>
-                    <!-- <label for="numberB">b</label> -->
-                    <img src="./media/chain.png" style="z-index: -1;position: absolute;height: 106%;/*! bottom: 460px; */top: -93%; right: 10%">   
-                    <input type="text" id="numberB" name="numberB" size="3" maxlength="3" disabled readonly>
-                </div>
-                <br>
-                <div id="fractionOperator" class="element">
-                    <img src="./media/chain.png" style="z-index: -1;position: absolute;height: 106%;/*! bottom: 460px; */top: -93%; right: 50%; left: 50%; transform: translate(-50%);">
-                    <label for="operatorAdd" id="opPlus">+</label>
-                    <input type="radio" id="operatorAdd" name="operators" value="yes" disabled readonly>
-                    <br>
-                    <label for="operatorSubs" id="opMinus">-</label>
-                    <input type="radio" id="operatorSubs" name="operators" value = "no" disabled readonly>
-                    <div class="animContainer">
-                        <div class="animObj" id="animLine1" style="color: transparent;">1</div>
-                        <div class="animObj" id="animLine2" style="color: transparent;">2</div>
-                        <div class="animObj" id="animLine3" style="color: transparent;">3</div>
-                    </div>
-                </div>
-                
-                <br>
-                <div id="fraction2" class="element">
-                    <img src="./media/chain.png" style="z-index: -1;position: absolute;height: 106%;/*! bottom: 460px; */top: -93%; left: 10%;">
-                    <!-- <label for="numberC">c</label> -->
-                    <input type="text" id="numberC" name="numberC" size="3" maxlength="3" disabled readonly>
-                    <p class="fractionLine" id="fraction2Op">—————</p>
-                    <!-- <label for="numberD">d</label> -->
-                    <img src="./media/chain.png" style="z-index: -1;position: absolute;height: 106%;/*! bottom: 460px; */top: -93%; right: 10%">
-                    <input type="text" id="numberD" name="numberD" size="3" maxlength="3" disabled readonly>
-                    <p class="equalSign">=</p>
-                </div>
-                <br>
-                <div id="fraction3" class="element">
-                    <img src="./media/chain.png" style="z-index: -1;position: absolute;height: 106%;/*! bottom: 460px; */top: -93%; left: 10%;">
-                    <!-- <label for="numberE">e</label> -->
-                    <input type="text" id="numberE" name="numberE" size="3" maxlength="3" disabled readonly>
-                    <p class="opSign">±</p>
-                    <!-- <label for="numberF">f</label> -->
-                    <input type="text" id="numberF" name="numberF" size="3" maxlength="3" disabled readonly style="text-align: right;">
-                    <p class="fractionLine">—————</p>
-                    <!-- <label for="numberG">g</label> -->
-                    <img src="./media/chain.png" style="z-index: -1;position: absolute;height: 106%;/*! bottom: 460px; */top: -93%; right: 10%">
-                    <input type="text" id="numberG" name="numberG" size="3" maxlength="3" disabled readonly>
-                    <p class="equalSign" style="width: 18%; left: 91%;">=</p>
-                </div>
-                <br>
-                <div id="fractionResult" class="element">
-                    <img src="./media/chain.png" style="z-index: -1;position: absolute;height: 106%;/*! bottom: 460px; */top: -93%; left: 10%;">
-                    <!-- <label for="numberRA">RA</label> -->
-                    <input type="text" id="numberRA" name="numberRA" size="3" maxlength="3" disabled readonly>
-                    <p class="resultOperator">—————</p>
-                    <!-- <label for="numberRB">RB</label> -->
-                    <img src="./media/chain.png" style="z-index: -1;position: absolute;height: 106%;/*! bottom: 460px; */top: -93%; right: 10%">
-                    <input type="text" id="numberRB" name="numberRB" size="3" maxlength="3" disabled readonly>
-                    <p class="equalSign">=</p>
-                </div>
-                <br>
-                <div id="fractionResultSimplified" class="element">
-                    <img src="./media/chain.png" style="z-index: -1;position: absolute;height: 106%;/*! bottom: 460px; */top: -93%; left: 10%;">
-                    <!-- <label for="numberRC">RC</label> -->
-                    <input type="text" id="numberRC" name="numberRC" size="3" maxlength="3" disabled readonly>
-                    <p class="resultOperator">—————</p>
-                    <!-- <label for="numberRD">RD</label> -->
-                    <img src="./media/chain.png" style="z-index: -1;position: absolute;height: 106%;/*! bottom: 460px; */top: -93%; right: 10%">
-                    <input type="text" id="numberRD" name="numberRD" size="3" maxlength="3" disabled readonly>
-                </div>
-                <br>
-            </div>
-            <div id="controlButtons" style="top: 50%;">
-                <button type="button" id="clearButton" class="functionButton">Limpiar</button>
-                <button type="button" id="compareButton" class="functionButton">Comparar</button>
-            </div>
-            <div id="commentBox">
-                <div id="keyboardGrid">
-                    <button class="keyboardButton" id="keyboardButton1">1</button>
-                    <button class="keyboardButton" id="keyboardButton2">2</button>
-                    <button class="keyboardButton" id="keyboardButton3">3</button>
-                    <button class="keyboardButton" id="keyboardButton4">4</button>
-                    <button class="keyboardButton" id="keyboardButton5">5</button>
-                    <button class="keyboardButton" id="keyboardButton6">6</button>
-                    <button class="keyboardButton" id="keyboardButton7">7</button>
-                    <button class="keyboardButton" id="keyboardButton8">8</button>
-                    <button class="keyboardButton" id="keyboardButton9">9</button>
-                    <button class="keyboardButton" id="keyboardButtonDel">←</button>
-                    <button class="keyboardButton" id="keyboardButton0">0</button>
-                    <button class="keyboardButton" id="keyboardButtonMinusPlus">x</button>
-                </div>
-                <div id="helpText">
-                    <h3 id="commentHeader" class="commentText">Bienvenido a<br>Camilito te Educa!</h3>
-                    <p id="commentPa1" class="commentText"><a href="#" id="howToUse"></a></p>
-                </div>
-                <div id="navGrid">
-                    <button class="navButton" id="navButtonB"><img src="./media/fractionD.png" style="width: 20px;"></button>
-                    <button class="navButton" id="navButtonD"><img src="./media/fractionD.png" style="width: 20px;"></button>
-                    <button class="navButton" id="navButtonA"><img src="./media/fractionN.png" style="width: 20px;"></button>
-                    <button class="navButton" id="navButtonMinus">-</button>
-                    <button class="navButton" id="navButtonAdd">+</button>
-                    <button class="navButton" id="navButtonC"><img src="./media/fractionN.png" style="width: 20px;"></button>
-                </div>
-            </div>
-            <div style="position: fixed;border: 18px solid #372317;width: 5%;height: 52%;background: #4b2a16;left: 50%;right: 50%;bottom: -15%;transform: translateX(-50%);z-index: -1;overflow: hidden;"><div></div></div>
-            <button id="bottomAreaTrigger">
-                ❔
-            </button>
-            <div>
-                <audio id="click">
-                    <source src="./media/audio/hit.mp3" type="audio/mpeg">
-                </audio>
-            </div>
-        </div>
-    </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layout Example</title>
+  <style>
+    @font-face {
+      font-family: PinkChicken;
+      src: url(../media/fonts/PinkChicken-Regular.ttf);
+    }
+
+    @font-face {
+      font-family: TOYZ;
+      src: url(../media/fonts/TOYZ.ttf);
+    }
+    /* Reset default styles */
+    body, h1, p, div {
+      margin: 0;
+      padding: 0;
+      
+    }
+    
+    body {
+      background-image: url("./media/background.jpg")
+    }
+
+    /* Navigation bar styles */
+    .nav-bar {
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      text-align: center;
+    }
+
+    /* Centered viewport with background */
+    .viewport {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: #fff;
+      height: 100vh; /* 80% of the viewport height */
+      margin: 0 10%; /* 10% margin on each side */
+      font-family: PinkChicken;
+    }
+
+    /* Aspect ratio container */
+    .aspect-ratio-container {
+      position: relative;
+      width: 90%;
+      padding-bottom: 45%; /* 19:6 aspect ratio (6/19 * 100) */
+    }
+
+    /* IFrame styles */
+    .aspect-ratio-content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Title below the iframe */
+    .bottom-title {
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="nav-bar">
+    <h1>Placeholder Title</h1>
+  </div>
+  <div class="viewport">
+    <div class="aspect-ratio-container">
+      <iframe class="aspect-ratio-content" src="application.html"></iframe>
+    </div>
+    <div class="bottom-title">
+      <h2>Placeholder Title</h2>
+    </div>
+  </div>
+</body>
 </html>

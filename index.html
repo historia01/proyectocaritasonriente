@@ -7,12 +7,12 @@
   <style>
     @font-face {
       font-family: PinkChicken;
-      src: url(../media/fonts/PinkChicken-Regular.ttf);
+      src: url(./media/fonts/PinkChicken-Regular.ttf);
     }
 
     @font-face {
       font-family: TOYZ;
-      src: url(../media/fonts/TOYZ.ttf);
+      src: url(./media/fonts/TOYZ.ttf);
     }
     /* Reset default styles */
     body, h1, p, div {
@@ -31,6 +31,7 @@
       color: white;
       padding: 10px;
       text-align: center;
+      font-family: TOYZ;
     }
 
     /* Centered viewport with background */
@@ -45,21 +46,26 @@
       font-family: PinkChicken;
     }
 
-    /* Aspect ratio container */
-    .aspect-ratio-container {
-      position: relative;
-      width: 90%;
-      padding-bottom: 45%; /* 19:6 aspect ratio (6/19 * 100) */
-    }
+/* Aspect ratio container */
+.aspect-ratio-container {
+  position: relative;
+  max-width: 1080px; /* Maximum width */
+  min-width: 800px;  /* Minimum width */
+  max-height: 600px; /* Maximum height */
+  min-height: 450px; /* Minimum height */
+  width: 85%;
+  margin: 0 auto; /* Center horizontally */
+}
 
-    /* IFrame styles */
-    .aspect-ratio-content {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
+/* IFrame styles */
+.aspect-ratio-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 
     /* Title below the iframe */
     .bottom-title {
@@ -70,14 +76,14 @@
 </head>
 <body>
   <div class="nav-bar">
-    <h1>Placeholder Title</h1>
+    <h1>Proyecto Carita Sonriente</h1>
   </div>
   <div class="viewport">
     <div class="aspect-ratio-container">
       <iframe class="aspect-ratio-content" src="application.html"></iframe>
     </div>
     <div class="bottom-title">
-      <h2>Placeholder Title</h2>
+      <h2>Proyecto Carita Sonriente</h2>
     </div>
   </div>
 </body>

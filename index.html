@@ -66,25 +66,38 @@
   height: 100%;
 }
 
-
+    .phoneicon {
+      position: relative;
+  z-index: 100;
+  transform: scale(0.5);
+  left: 60%;
+  bottom: 0%;
+    }
     /* Title below the iframe */
     .bottom-title {
       text-align: center;
       margin-top: 20px;
     }
   </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </head>
 <body>
+  <div>
   <div class="nav-bar">
     <h1>Proyecto Carita Sonriente</h1>
   </div>
+  
   <div class="viewport">
     <div class="aspect-ratio-container">
       <iframe class="aspect-ratio-content" src="application.html"></iframe>
     </div>
+    
     <div class="bottom-title">
-      <h2>Proyecto Carita Sonriente</h2>
+      <h2 class="applicationlink"><a href="./application.html" style="text-decoration: none; color: rgb(255, 255, 255); padding: 10px; background-color: purple; border-radius: 5px;"> Ingresar al Proyecto Carita Sonriente</a></h2>
+      
     </div>
   </div>
+  <img class="phoneicon" src="media/phone.png">
+  </div> 
 </body>
 </html>
